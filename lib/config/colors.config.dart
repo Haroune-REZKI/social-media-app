@@ -13,6 +13,11 @@ class AppColors {
   static const Color yellowSecondary = Color(0xFFA28124);
   static const Color redSecondary = Color(0xFF773725);
 
+  // these are same colors as above, but for categories background
+  static const Color blueSecondaryBG = Color.fromARGB(100, 54, 70, 93);
+  static const Color yellowSecondaryBG = Color.fromARGB(100, 162, 128, 36);
+  static const Color redSecondaryBG = Color.fromARGB(100, 119, 55, 37);
+
   // those are used to color texts (titles and less) 
   static const Color light = Color(0xFFA8A8A8);
   static const Color dark = Color(0xFF000000);
