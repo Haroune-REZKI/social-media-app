@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_dev_project/feature/posts/components/feed_post_content.dart';
-import 'package:mobile_dev_project/feature/posts/components/feed_post_footer.dart';
-import 'package:mobile_dev_project/feature/posts/components/post_header.dart';
+import 'package:mobile_dev_project/features/posts/components/feed_post_content.dart';
+import 'package:mobile_dev_project/features/posts/components/feed_post_footer.dart';
+import 'package:mobile_dev_project/features/posts/components/post_header.dart';
+import 'package:mobile_dev_project/features/posts/handlers/classes/post.dart';
 
 class FeedPost extends StatefulWidget {
-  final Map<String, dynamic> postContent;
+  final Post postContent;
 
   const FeedPost({super.key, required this.postContent});
 
@@ -31,26 +32,26 @@ class _FeedPostState extends State<FeedPost> {
       child: Column(
         children: [
           PostHeader(
-            fullName: widget.postContent["fullname"],
-            userName: widget.postContent["username"],
-            avatar: widget.postContent["avatar"],
+            fullName: widget.postContent.fullname,
+            userName: widget.postContent.username,
+            avatar: widget.postContent.avatar,
           ),
           const SizedBox(
             height: 10,
           ),
           PostContent(
-            content: widget.postContent["content"],
-            hasImage: widget.postContent["hasImage"],
+            content: widget.postContent.content,
+            hasImage: widget.postContent.hasImage,
           ),
           const SizedBox(
             height: 10,
           ),
           PostFooter(
-            likes: widget.postContent["likes"],
-            isLiked: widget.postContent["isLiked"],
-            comments: widget.postContent["comments"],
-            hasBookmarked: widget.postContent["hasBookmarked"],
-            timestamps: widget.postContent["timestamps"],
+            likes: widget.postContent.likes,
+            isLiked: widget.postContent.isLiked,
+            comments: widget.postContent.comments,
+            hasBookmarked: widget.postContent.hasBookmarked,
+            timestamps: widget.postContent.timestamps,
           )
         ],
       ),
