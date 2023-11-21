@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_dev_project/features/authentication/views/Signin_page.dart';
 import 'package:mobile_dev_project/features/authentication/views/welcome_page.dart';
 import 'package:mobile_dev_project/features/feed/views/home_page.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Social Media Application',
       debugShowCheckedModeBanner: true,
-      home: WelcomePage(),
+      home: SignIn(),
       routes: const {
         // to be filled
       },
