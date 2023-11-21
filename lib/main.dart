@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_dev_project/feature/authentication/views/welcome_page.dart';
+import 'package:mobile_dev_project/features/authentication/views/welcome_page.dart';
 import 'package:mobile_dev_project/features/feed/views/home_page.dart';
 
 void main() async {

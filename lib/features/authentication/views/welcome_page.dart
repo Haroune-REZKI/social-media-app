@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
-import 'package:mobile_dev_project/feature/authentication/components/login_button.dart';
-import 'package:mobile_dev_project/feature/authentication/components/logo.dart';
-import 'package:mobile_dev_project/feature/authentication/components/slogan.dart';
+import 'package:mobile_dev_project/features/authentication/components/login_button.dart';
+import 'package:mobile_dev_project/features/authentication/components/logo.dart';
+import 'package:mobile_dev_project/features/authentication/components/slogan.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);
