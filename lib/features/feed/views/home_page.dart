@@ -13,7 +13,6 @@ class HomeFeed extends StatelessWidget {
       appBar: CustomAppBar(),
       body: Container(
         margin: const EdgeInsets.only(top: 20),
-        padding: const EdgeInsets.only(left: 20),
         child: Column(
           children: [
             FeedCategoriesListing(),
