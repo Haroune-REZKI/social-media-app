@@ -26,7 +26,7 @@ class _FeedCategoriesListingState extends State<FeedCategoriesListing> {
             style: AppTextStyles.title,
           ),
           SizedBox(
-            height: 250,
+            height: 270,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.all(12),
