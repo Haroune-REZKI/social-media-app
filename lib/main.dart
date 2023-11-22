@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Social Media Application',
       debugShowCheckedModeBanner: true,
-      home: const HomeFeed(),
+      home: const WelcomePage(),
       routes: {
         // to be filled
         "login_page": (context) => const SignIn(),

@@ -10,7 +10,7 @@ List<Category> categoriesExample = [
     title: "Open Days of ENSIA Clubs",
     description:
         "Clubs Category: Catch all the news related to the Techno Pole’s Clubs !",
-    bgImage: "scientific-clubs.png",
+    bgImage: "assets/scientific-clubs.png",
     mainColor: AppColors.yellowSecondary,
     bgColor: AppColors.yellowSecondaryBG,
     isSubscribed: Random().nextBool(),
@@ -21,7 +21,7 @@ List<Category> categoriesExample = [
     title: "NHSM Open Days",
     description:
         "Pole Category: Catch all the news related to the Technical Pole !",
-    bgImage: "sidi-abdellah-tech-pole.jpg",
+    bgImage: "assets/sidi-abdellah-tech-pole.jpg",
     mainColor: AppColors.blueSecondary,
     bgColor: AppColors.blueSecondaryBG,
     isSubscribed: Random().nextBool(),
@@ -32,7 +32,7 @@ List<Category> categoriesExample = [
     title: "Water Issues Persisting",
     description:
         "Residency Category: Catch all the news related to the Residencies !",
-    bgImage: "mahelma6.jpg",
+    bgImage: "assets/mahelma6.jpg",
     mainColor: AppColors.redSecondary,
     bgColor: AppColors.redSecondaryBG,
     isSubscribed: Random().nextBool(),

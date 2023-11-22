@@ -25,7 +25,7 @@ class PostContent extends StatelessWidget {
               height: 200,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("mahelma6.jpg"),
+                  image: AssetImage("assets/mahelma6.jpg"),
                   fit: BoxFit.cover,
                 ),
               ),
