@@ -18,29 +18,40 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back),
-        title: Text("AppName"),
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(Icons.arrow_back),
+        ),
+        title: const Text("AppName"),
       ),
       body: Container(
-          margin: EdgeInsets.all(20),
+          margin: const EdgeInsets.all(20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                child: Column(
-                  children: [
-                    SigninText(),
-                    InputField(title: "username"),
-                    InputField(title: "Password"),
-                    ForgetPassword(),
-                  ],
-                ),
+              Column(
+                children: [
+                  const SigninText(),
+                  InputField(title: "username"),
+                  InputField(title: "Password"),
+                  const ForgetPassword(),
+                ],
               ),
-              Container(
-                child: Column(children: [
-                  LoginButton(title: "Log In", color: AppColors.main, textColor: AppColors.white),
-                  DoNotHaveAnAccount(),
-                ],),)
+              Column(
+                children: [
+                  LoginButton(
+                    title: "Log In",
+                    color: AppColors.main,
+                    textColor: AppColors.white,
+                    onTap: () {
+                      Navigator.pushNamed(context, "login_page");
+                    },
+                  ),
+                  const DoNotHaveAnAccount(),
+                ],
+              )
             ],
           )),
     );

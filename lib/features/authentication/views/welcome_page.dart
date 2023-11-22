@@ -17,15 +17,35 @@ class WelcomePageState extends State<WelcomePage> {
     return Scaffold(
       body: Center(
         child: Container(
-          margin: EdgeInsets.all(40),
+          margin: const EdgeInsets.all(40),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Logo(),
-              Slogan(),
-              LoginButton(title: "Login", color: AppColors.white, textColor: AppColors.dark,),
-              LoginButton(title: "Signup", color: AppColors.main, textColor: AppColors.white,)
-
+              const Logo(),
+              const Slogan(),
+              Column(
+                children: [
+                  LoginButton(
+                    title: "Login",
+                    color: AppColors.white,
+                    textColor: AppColors.dark,
+                    onTap: () {
+                      Navigator.pushNamed(context, "login_page");
+                    },
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  LoginButton(
+                    title: "Sign Up",
+                    color: AppColors.main,
+                    textColor: AppColors.white,
+                    onTap: () {
+                      Navigator.pushNamed(context, "signup_page");
+                    },
+                  ),
+                ],
+              )
             ],
           ),
         ),

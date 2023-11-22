@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_dev_project/features/authentication/views/Signin_page.dart';
+import 'package:mobile_dev_project/features/authentication/views/signin_page.dart';
 import 'package:mobile_dev_project/features/authentication/views/welcome_page.dart';
-import 'package:mobile_dev_project/features/feed/views/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,12 +13,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Social Media Application',
       debugShowCheckedModeBanner: true,
-      home: SignIn(),
-      routes: const {
+      home: const WelcomePage(),
+      routes: {
         // to be filled
+        "login_page": (context) => const SignIn(),
       },
     );
   }
