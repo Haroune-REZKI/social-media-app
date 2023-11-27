@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:mobile_dev_project/config/colors.config.dart';
-import 'package:mobile_dev_project/features/categories/handlers/classes/Category.dart';
+import 'package:mobile_dev_project/features/categories/handlers/classes/category.dart';
 
 List<Category> categoriesExample = [
   Category(

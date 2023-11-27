@@ -1,7 +1,7 @@
 // ignore_for_file: must_be_immutable
 import 'package:flutter/material.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
-import 'package:mobile_dev_project/features/categories/handlers/classes/Category.dart';
+import 'package:mobile_dev_project/features/categories/handlers/classes/category.dart';
 import 'package:mobile_dev_project/features/categories/views/categories_feed.dart';
 
 class FeedSingleCategory extends StatefulWidget {

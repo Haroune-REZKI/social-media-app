@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
-import 'package:mobile_dev_project/features/categories/handlers/classes/Category.dart';
+import 'package:mobile_dev_project/features/categories/handlers/classes/category.dart';
 
 // ignore: must_be_immutable
 class CustomSilverAppBar extends StatefulWidget {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
 import 'package:mobile_dev_project/features/categories/components/categories_page_listing.dart';
 import 'package:mobile_dev_project/features/categories/components/custom_silver_app_bar.dart';
-import 'package:mobile_dev_project/features/categories/handlers/classes/Category.dart';
+import 'package:mobile_dev_project/features/categories/handlers/classes/category.dart';
 
 class CategoriesFeed extends StatefulWidget {
   final Category pageCategory;
