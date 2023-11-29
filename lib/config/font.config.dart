@@ -4,7 +4,7 @@ import 'package:mobile_dev_project/config/colors.config.dart';
 
 class AppTextStyles {
   static TextStyle title = TextStyle(
-      fontSize: 30,
+      fontSize: 26,
       fontFamily: GoogleFonts.montserrat().fontFamily,
       fontWeight: FontWeight.w600,
       color: AppColors.dark);
