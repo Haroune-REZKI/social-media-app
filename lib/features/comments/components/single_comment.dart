@@ -1,0 +1,111 @@
+import 'package:flutter/material.dart';
+import 'package:mobile_dev_project/config/colors.config.dart';
+import 'package:mobile_dev_project/config/font.config.dart';
+import 'package:mobile_dev_project/features/comments/components/single_comment_footer.dart';
+import 'package:mobile_dev_project/features/comments/handlers/constants/main.dart';
+
+class SingleComment extends StatelessWidget {
+  final int commentId;
+
+  const SingleComment({super.key, required this.commentId});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(top: 10),
+                  height: 70.0,
+                  child: CircleAvatar(
+                    radius: 35,
+                    backgroundColor: AppColors.main,
+                    child: CircleAvatar(
+                      radius: 32,
+                      backgroundColor: Colors.white,
+                      child: CircleAvatar(
+                        radius: 30,
+                        backgroundImage: NetworkImage(
+                          commentsExample[commentId].avatar,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+            const SizedBox(
+              width: 20,
+            ),
+            Container(
+              constraints: const BoxConstraints(maxWidth: 150),
+              padding: const EdgeInsets.only(top: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    commentsExample[commentId].fullname,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  const SizedBox(
+                    height: 2,
+                  ),
+                  Text(
+                    "@${commentsExample[commentId].username}",
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                      color: AppColors.light,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    commentsExample[commentId].content,
+                    style: AppTextStyles.text,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  SingleCommentFooter(
+                    likes: commentsExample[commentId].likes,
+                    isLiked: commentsExample[commentId].isLiked,
+                    hasBookmarked: commentsExample[commentId].hasBookmarked,
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            top: 15,
+            right: 10,
+          ),
+          child: Text(
+            commentsExample[commentId].timestamps,
+            style: const TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.w700,
+              color: AppColors.light,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}

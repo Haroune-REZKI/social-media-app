@@ -17,7 +17,10 @@ class CategoriesPageListing extends StatelessWidget {
             return Padding(
               padding:
                   const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10),
-              child: FeedPost(postContent: postsSample[index]),
+              child: FeedPost(
+                postContent: postsSample[index],
+                isSinglePostView: false,
+              ),
             );
           }
           return null;

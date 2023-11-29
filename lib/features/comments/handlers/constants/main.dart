@@ -1,105 +1,91 @@
 import 'dart:math';
 
-import 'package:mobile_dev_project/features/posts/handlers/classes/post.dart';
+import 'package:mobile_dev_project/features/comments/handlers/classes/comment.dart';
 
 // NOTE: This is purely for testing
-final List<Post> postsExample = [
-  Post(
+final List<Comment> commentsExample = [
+  Comment(
     id: 0,
     fullname: "Haroune Rezki",
     username: "harouuune",
     avatar:
         "https://4.bp.blogspot.com/-Jx21kNqFSTU/UXemtqPhZCI/AAAAAAAAh74/BMGSzpU6F48/s1600/funny-cat-pictures-047-001.jpg",
     content: "Breaking news: el moudira has left the campus forever!",
-    likes: "573",
-    hasImage: Random().nextBool(),
+    likes: Random().nextInt(1000).toString(),
     isLiked: Random().nextBool(),
-    comments: "30",
     hasBookmarked: Random().nextBool(),
-    timestamps: "35 min ago",
+    timestamps: "${Random().nextInt(59)} min ago",
   ),
-  Post(
+  Comment(
     id: 1,
     fullname: "Haroune Rezki",
     username: "harouuune",
     avatar:
         "https://4.bp.blogspot.com/-Jx21kNqFSTU/UXemtqPhZCI/AAAAAAAAh74/BMGSzpU6F48/s1600/funny-cat-pictures-047-001.jpg",
     content: "Breaking news: el moudira has left the campus forever!",
-    likes: "573",
-    hasImage: Random().nextBool(),
+    likes: Random().nextInt(1000).toString(),
     isLiked: Random().nextBool(),
-    comments: "30",
     hasBookmarked: Random().nextBool(),
-    timestamps: "35 min ago",
+    timestamps: "${Random().nextInt(59)} min ago",
   ),
-  Post(
+  Comment(
     id: 2,
     fullname: "Haroune Rezki",
     username: "harouuune",
     avatar:
         "https://4.bp.blogspot.com/-Jx21kNqFSTU/UXemtqPhZCI/AAAAAAAAh74/BMGSzpU6F48/s1600/funny-cat-pictures-047-001.jpg",
     content: "Breaking news: el moudira has left the campus forever!",
-    likes: "573",
-    hasImage: Random().nextBool(),
+    likes: Random().nextInt(1000).toString(),
     isLiked: Random().nextBool(),
-    comments: "30",
     hasBookmarked: Random().nextBool(),
-    timestamps: "35 min ago",
+    timestamps: "${Random().nextInt(59)} min ago",
   ),
-  Post(
+  Comment(
     id: 3,
     fullname: "Haroune Rezki",
     username: "harouuune",
     avatar:
         "https://4.bp.blogspot.com/-Jx21kNqFSTU/UXemtqPhZCI/AAAAAAAAh74/BMGSzpU6F48/s1600/funny-cat-pictures-047-001.jpg",
     content: "Breaking news: el moudira has left the campus forever!",
-    likes: "573",
-    hasImage: Random().nextBool(),
+    likes: Random().nextInt(1000).toString(),
     isLiked: Random().nextBool(),
-    comments: "30",
     hasBookmarked: Random().nextBool(),
-    timestamps: "35 min ago",
+    timestamps: "${Random().nextInt(59)} min ago",
   ),
-  Post(
+  Comment(
     id: 4,
     fullname: "Haroune Rezki",
     username: "harouuune",
     avatar:
         "https://4.bp.blogspot.com/-Jx21kNqFSTU/UXemtqPhZCI/AAAAAAAAh74/BMGSzpU6F48/s1600/funny-cat-pictures-047-001.jpg",
     content: "Breaking news: el moudira has left the campus forever!",
-    likes: "573",
-    hasImage: Random().nextBool(),
+    likes: Random().nextInt(1000).toString(),
     isLiked: Random().nextBool(),
-    comments: "30",
     hasBookmarked: Random().nextBool(),
-    timestamps: "35 min ago",
+    timestamps: "${Random().nextInt(59)} min ago",
   ),
-  Post(
+  Comment(
     id: 5,
     fullname: "Haroune Rezki",
     username: "harouuune",
     avatar:
         "https://4.bp.blogspot.com/-Jx21kNqFSTU/UXemtqPhZCI/AAAAAAAAh74/BMGSzpU6F48/s1600/funny-cat-pictures-047-001.jpg",
     content: "Breaking news: el moudira has left the campus forever!",
-    likes: "573",
-    hasImage: Random().nextBool(),
+    likes: Random().nextInt(1000).toString(),
     isLiked: Random().nextBool(),
-    comments: "30",
     hasBookmarked: Random().nextBool(),
-    timestamps: "35 min ago",
+    timestamps: "${Random().nextInt(59)} min ago",
   ),
-  Post(
+  Comment(
     id: 6,
     fullname: "Haroune Rezki",
     username: "harouuune",
     avatar:
         "https://4.bp.blogspot.com/-Jx21kNqFSTU/UXemtqPhZCI/AAAAAAAAh74/BMGSzpU6F48/s1600/funny-cat-pictures-047-001.jpg",
     content: "Breaking news: el moudira has left the campus forever!",
-    likes: "573",
-    hasImage: Random().nextBool(),
+    likes: Random().nextInt(1000).toString(),
     isLiked: Random().nextBool(),
-    comments: "30",
     hasBookmarked: Random().nextBool(),
-    timestamps: "35 min ago",
+    timestamps: "${Random().nextInt(59)} min ago",
   ),
 ];
