@@ -13,18 +13,21 @@ class InputField extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(10.0),
-            child: Text(this.title, style: TextStyle(fontWeight: FontWeight.w100),),
+            child: Text(
+              this.title,
+              style: TextStyle(fontWeight: FontWeight.w100),
+            ),
           ),
           TextField(
-            decoration: InputDecoration(
-              labelText: '',
-              enabledBorder: OutlineInputBorder(
-              borderSide:
-                  BorderSide(width: 2, color: AppColors.main), //<-- SEE HERE
-              borderRadius: BorderRadius.circular(30.0), 
-              )
-            )
-          )
-              ],),);
+              decoration: InputDecoration(
+                  labelText: '',
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        width: 2, color: AppColors.main), //<-- SEE HERE
+                    borderRadius: BorderRadius.circular(30.0),
+                  )))
+        ],
+      ),
+    );
   }
 }

@@ -9,7 +9,7 @@ class ForgetPassword extends StatelessWidget {
     return Container(alignment: Alignment.bottomRight,
      child: const Padding(
       padding: EdgeInsets.all(8.0),
-      child: Text("Forgot Password?", style: TextStyle(fontWeight: FontWeight.w100, color: AppColors.main, decoration: TextDecoration.underline),),
+      child: Text("Forgot Password?", style: TextStyle(fontWeight: FontWeight.w400, color: AppColors.main, decoration: TextDecoration.underline),),
     ),);
   }
 }

@@ -13,6 +13,6 @@ class SigninText extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children:
      [Text("Sign In", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
-     Text("Please enter your information", style: TextStyle(fontWeight: FontWeight.w200),)]),);
+     Text("Please enter your information", style: TextStyle(fontWeight: FontWeight.w300),)]),);
   }
 }
