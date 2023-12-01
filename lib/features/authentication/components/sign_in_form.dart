@@ -17,11 +17,11 @@ class SignInForm extends StatelessWidget {
       child: Form(
           child: Column(
         children: [
-          FormInputField(title: 'username', controller: usernameController,),
+          FormInputField(title: 'username', controller: usernameController, icon: Icon(Icons.person),),
           SizedBox(
             height: 40,
           ),
-          FormInputField(title: 'Password', controller: passwordController,),
+          FormInputField(title: 'Password', controller: passwordController, icon: Icon(Icons.lock),),
         ],
       )),
     );

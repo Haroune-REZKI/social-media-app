@@ -6,9 +6,9 @@ import 'package:mobile_dev_project/features/authentication/components/authentifi
 
 class FormInputField extends StatelessWidget {
   String title;
-   TextEditingController controller =
-      TextEditingController();
-  FormInputField({super.key, required this.title, required this.controller});
+  final Icon? icon;
+  TextEditingController controller = TextEditingController();
+  FormInputField({super.key, required this.title, required this.controller,  Icon? this.icon,});
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +17,12 @@ class FormInputField extends StatelessWidget {
         TextFormField(
           controller: controller,
           decoration: InputDecoration(
-            labelText: title,
+            prefixIcon: icon,
+            hintText: title,
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(width: 2, color: AppColors.main),
               borderRadius: BorderRadius.circular(30.0),
+            
             ),
           ),
           validator: (value) {

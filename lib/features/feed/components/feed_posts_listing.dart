@@ -21,6 +21,7 @@ class _FeedPostsListingState extends State<FeedPostsListing> {
         if (index < widget.postsSample.length) {
           return FeedPost(
             postContent: widget.postsSample[index],
+            isSinglePostView: false,
           );
         }
 

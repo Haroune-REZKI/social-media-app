@@ -6,7 +6,7 @@ import 'package:mobile_dev_project/features/authentication/components/form_submi
 import 'package:mobile_dev_project/features/authentication/components/input_field.dart';
 import 'package:mobile_dev_project/features/authentication/components/login_button.dart';
 import 'package:mobile_dev_project/features/authentication/components/sign_in_form.dart';
-import 'package:mobile_dev_project/features/authentication/components/signin_text.dart';
+import 'package:mobile_dev_project/features/authentication/components/customized_text.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -35,7 +35,7 @@ class _SignInState extends State<SignIn> {
             children: [
               Column(
                 children: [
-                  const SigninText(),
+                  SigninText(textMain: "Welcome Back", textSecond: "Enter your credential to login",),
                   SizedBox(
                     height: 20,
                   ),
@@ -50,7 +50,7 @@ class _SignInState extends State<SignIn> {
                       color: AppColors.main,
                       textColor: AppColors.white,
                       onTap: () {
-                        Navigator.pushNamed(context, "signup_page");
+                        Navigator.pushNamed(context, "home_feed");
                       }),
                   const DoNotHaveAnAccount(),
                 ],

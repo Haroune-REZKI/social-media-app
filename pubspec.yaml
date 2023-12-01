@@ -39,6 +39,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^6.1.0
   get: ^4.6.6
+  gender_picker: ^1.1.0
+  syncfusion_flutter_datepicker: ^23.2.6
+  intl_phone_number_input: ^0.7.3+1
+  intl_phone_field: ^3.2.0
 
 dev_dependencies:
   flutter_test:
