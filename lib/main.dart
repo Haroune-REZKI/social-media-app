@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Social Media Application',
       debugShowCheckedModeBanner: true,
-      home: const SignUp(),
+      home: const HomeFeed(),
       theme: ThemeData(
         textTheme: GoogleFonts.montserratTextTheme(
           Theme.of(context).textTheme,
@@ -30,7 +30,9 @@ class MyApp extends StatelessWidget {
       routes: {
         // to be filled
         "login_page": (context) => const SignIn(),
+        '/settings': (context) => const Settings(),
       },
     );
+    /* home: Profile(),); */
   }
 }
