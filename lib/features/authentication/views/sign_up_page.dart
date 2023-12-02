@@ -5,15 +5,16 @@ import 'package:mobile_dev_project/features/authentication/components/input_fiel
 import 'package:mobile_dev_project/features/authentication/components/login_button.dart';
 import 'package:mobile_dev_project/features/authentication/components/personal_info_form.dart';
 import 'package:mobile_dev_project/features/authentication/components/customized_text.dart';
+import 'package:mobile_dev_project/features/authentication/components/sign_up_form.dart';
 
-class PersonalInfoPage extends StatefulWidget {
-  const PersonalInfoPage({super.key});
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
 
   @override
-  State<PersonalInfoPage> createState() => _PersonalInfoPageState();
+  State<SignUp> createState() => _PersonalInfoPageState();
 }
 
-class _PersonalInfoPageState extends State<PersonalInfoPage> {
+class _PersonalInfoPageState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -35,13 +36,13 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               
               children: [
-                SigninText(textMain: "Personal Information", textSecond: "Please enter your information"),
-                PersonalInfoForm(),
+                SigninText(textMain: "Sign Up", textSecond: "Create your Account"),
+                SignUpForm(),
                 Container(
                   child: Column(
                     children: [
                       FormSubmitButton(
-                          title: "Next",
+                          title: "Sign Up",
                           color: AppColors.main,
                           textColor: AppColors.white,
                           onTap: () {
