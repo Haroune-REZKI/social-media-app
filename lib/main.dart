@@ -6,6 +6,7 @@ import 'package:mobile_dev_project/features/authentication/views/signin_page.dar
 import 'package:mobile_dev_project/features/authentication/views/welcome_page.dart';
 import 'package:mobile_dev_project/features/categories/views/categories_feed.dart';
 import 'package:mobile_dev_project/features/feed/views/home_page.dart';
+import 'package:mobile_dev_project/features/posts/views/add_post.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Social Media Application',
       debugShowCheckedModeBanner: true,
-      home: const SignUp(),
+      home: const AddPost(),
       theme: ThemeData(
         textTheme: GoogleFonts.montserratTextTheme(
           Theme.of(context).textTheme,

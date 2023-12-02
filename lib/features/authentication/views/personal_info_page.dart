@@ -35,7 +35,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               
               children: [
-                SigninText(textMain: "Personal Information", textSecond: "Please enter your information"),
+                CustomizedText(textMain: "Personal Information", textSecond: "Please enter your information"),
                 PersonalInfoForm(),
                 Container(
                   child: Column(
