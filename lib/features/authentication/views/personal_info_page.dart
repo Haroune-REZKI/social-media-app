@@ -16,7 +16,6 @@ class PersonalInfoPage extends StatefulWidget {
 class _PersonalInfoPageState extends State<PersonalInfoPage> {
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
         appBar: AppBar(
           leading: InkWell(
@@ -29,7 +28,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
         ),
         body: SingleChildScrollView(
           child: Container(
-            height: screenHeight * 0.95,
+            height: 800,
             padding: const EdgeInsets.all(25),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
