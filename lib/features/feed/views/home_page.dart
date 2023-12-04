@@ -11,7 +11,7 @@ class HomeFeed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(parentContext: context),
       body: Container(
         margin: const EdgeInsets.only(top: 20),
         child: Column(
