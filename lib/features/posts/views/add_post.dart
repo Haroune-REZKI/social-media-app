@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
 import 'package:mobile_dev_project/features/authentication/components/customized_text.dart';
-import 'package:mobile_dev_project/features/authentication/components/form_submit_button.dart';
 import 'package:mobile_dev_project/features/posts/components/add_tag.dart';
 import 'package:mobile_dev_project/features/posts/components/post_submit_button.dart';
 import 'package:mobile_dev_project/features/posts/components/post_text_field.dart';
@@ -33,7 +32,7 @@ class _AddPostState extends State<AddPost> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          height: screenHeight * 0.95,
+            height: screenHeight * 0.95,
             padding: const EdgeInsets.all(25),
             child: Column(
               children: [
@@ -41,7 +40,9 @@ class _AddPostState extends State<AddPost> {
                 PostTextField(title: title, controller: postController),
                 SizedBox(height: 20),
                 AddTag(),
-                SizedBox(height: 50,),
+                SizedBox(
+                  height: 50,
+                ),
                 PostSubmitButton(
                     title: "Share!",
                     color: AppColors.main,
