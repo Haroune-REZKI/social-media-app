@@ -1,28 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
-import 'package:mobile_dev_project/features/authentication/components/authentification_controllers.dart';
 
-class FormInputField extends StatelessWidget {
+class PostTextField extends StatefulWidget {
   String title;
-  final Icon? icon;
   TextEditingController controller = TextEditingController();
-  FormInputField({super.key, required this.title, required this.controller,  Icon? this.icon,});
+  PostTextField({super.key, required this.title, required this.controller});
 
   @override
+  State<PostTextField> createState() => _PostTextFieldState();
+}
+
+class _PostTextFieldState extends State<PostTextField> {
+  @override
   Widget build(BuildContext context) {
-    return Container(
+    return Container( 
       child: TextFormField(
-        controller: controller,
+        textAlign: TextAlign.start,
+        controller: widget.controller,
+        minLines: 10,
+        maxLines: 100,
         decoration: InputDecoration(
-          prefixIcon: icon,
-          hintText: title,
+          hintText: widget.title,
+          alignLabelWithHint: true,
+
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(width: 2, color: AppColors.main),
             borderRadius: BorderRadius.circular(30.0),
-          
           ),
+           
         ),
         validator: (value) {
           if (value == null || value.isEmpty) {
@@ -31,6 +36,8 @@ class FormInputField extends StatelessWidget {
           return null;
         },
       ),
+      
     );
+    ;
   }
 }
