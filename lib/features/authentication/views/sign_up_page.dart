@@ -36,7 +36,7 @@ class _PersonalInfoPageState extends State<SignUp> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               
               children: [
-                SigninText(textMain: "Sign Up", textSecond: "Create your Account"),
+                CustomizedText(textMain: "Sign Up", textSecond: "Create your Account"),
                 SignUpForm(),
                 Container(
                   child: Column(

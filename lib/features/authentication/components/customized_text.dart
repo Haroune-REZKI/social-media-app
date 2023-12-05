@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class SigninText extends StatelessWidget {
+class CustomizedText extends StatelessWidget {
   String textMain;
   String textSecond;
 
 
-  SigninText({super.key, required this.textMain, required this.textSecond,});
+  CustomizedText({super.key, required this.textMain, required this.textSecond,});
 
   @override
   Widget build(BuildContext context) {
