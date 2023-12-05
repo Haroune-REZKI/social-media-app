@@ -34,9 +34,9 @@ class _PersonalInfoPageState extends State<SignUp> {
             padding: const EdgeInsets.all(25),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              
               children: [
-                CustomizedText(textMain: "Sign Up", textSecond: "Create your Account"),
+                CustomizedText(
+                    textMain: "Sign Up", textSecond: "Create your Account"),
                 SignUpForm(),
                 Container(
                   child: Column(
@@ -46,7 +46,7 @@ class _PersonalInfoPageState extends State<SignUp> {
                           color: AppColors.main,
                           textColor: AppColors.white,
                           onTap: () {
-                            Navigator.pushNamed(context, "login_page");
+                            Navigator.pushNamed(context, '/feed');
                           }),
                       Text('OR'),
                       LoginButton(

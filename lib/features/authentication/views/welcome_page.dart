@@ -30,7 +30,7 @@ class WelcomePageState extends State<WelcomePage> {
                     color: AppColors.white,
                     textColor: AppColors.dark,
                     onTap: () {
-                      Navigator.pushNamed(context, "login_page");
+                      Navigator.pushNamed(context, '/login_page');
                     },
                   ),
                   const SizedBox(
@@ -41,7 +41,7 @@ class WelcomePageState extends State<WelcomePage> {
                     color: AppColors.main,
                     textColor: AppColors.white,
                     onTap: () {
-                      Navigator.pushNamed(context, "signup_page");
+                      Navigator.pushNamed(context, '/sign_up_page');
                     },
                   ),
                 ],

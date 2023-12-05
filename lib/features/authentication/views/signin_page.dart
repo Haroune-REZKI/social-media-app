@@ -35,7 +35,10 @@ class _SignInState extends State<SignIn> {
             children: [
               Column(
                 children: [
-                  CustomizedText(textMain: "Welcome Back", textSecond: "Enter your credential to login",),
+                  CustomizedText(
+                    textMain: "Welcome Back",
+                    textSecond: "Enter your credential to login",
+                  ),
                   SizedBox(
                     height: 20,
                   ),
@@ -50,7 +53,7 @@ class _SignInState extends State<SignIn> {
                       color: AppColors.main,
                       textColor: AppColors.white,
                       onTap: () {
-                        Navigator.pushNamed(context, "home_feed");
+                        Navigator.pushNamed(context, '/feed');
                       }),
                   const DoNotHaveAnAccount(),
                 ],

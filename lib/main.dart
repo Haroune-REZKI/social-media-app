@@ -29,11 +29,12 @@ class MyApp extends StatelessWidget {
       routes: {
         // to be filled
         "/": (context) => const WelcomePage(),
-        "login_page": (context) => const SignIn(),
         '/settings': (context) => const Settings(),
-        "home_feed": (context) => const HomeFeed()
+        '/login_page': (context) => const SignIn(),
+        '/sign_up_page': (context) => const SignUp(),
+        '/settings': (context) => const Settings(),
+        '/feed': (context) => const HomeFeed(),
       },
     );
-    /* home: Profile(),); */
   }
 }

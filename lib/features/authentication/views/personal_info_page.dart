@@ -32,9 +32,10 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
             padding: const EdgeInsets.all(25),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              
               children: [
-                CustomizedText(textMain: "Personal Information", textSecond: "Please enter your information"),
+                CustomizedText(
+                    textMain: "Personal Information",
+                    textSecond: "Please enter your information"),
                 PersonalInfoForm(),
                 Container(
                   child: Column(
@@ -44,7 +45,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                           color: AppColors.main,
                           textColor: AppColors.white,
                           onTap: () {
-                            Navigator.pushNamed(context, "login_page");
+                            Navigator.pushNamed(context, '/sign_up');
                           }),
                       Text('OR'),
                       LoginButton(
