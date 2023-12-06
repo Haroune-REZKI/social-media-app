@@ -4,6 +4,7 @@ import 'package:mobile_dev_project/features/authentication/components/customized
 import 'package:mobile_dev_project/features/posts/components/add_tag.dart';
 import 'package:mobile_dev_project/features/posts/components/post_submit_button.dart';
 import 'package:mobile_dev_project/features/posts/components/post_text_field.dart';
+import 'package:mobile_dev_project/utils/components/bottom_navigation_bar.dart';
 
 class AddPost extends StatefulWidget {
   const AddPost({super.key});
@@ -32,24 +33,29 @@ class _AddPostState extends State<AddPost> {
       ),
       body: SingleChildScrollView(
         child: Container(
-            height: screenHeight * 0.95,
-            padding: const EdgeInsets.all(25),
-            child: Column(
-              children: [
-                CustomizedText(textMain: "Add a  new Post", textSecond: ""),
-                PostTextField(title: title, controller: postController),
-                SizedBox(height: 20),
-                AddTag(),
-                SizedBox(
-                  height: 50,
-                ),
-                PostSubmitButton(
-                    title: "Share!",
-                    color: AppColors.main,
-                    textColor: AppColors.white,
-                    onTap: () {}),
-              ],
-            )),
+          height: screenHeight * 0.95,
+          padding: const EdgeInsets.all(25),
+          child: Column(
+            children: [
+              CustomizedText(textMain: "Add a  new Post", textSecond: ""),
+              PostTextField(title: title, controller: postController),
+              const SizedBox(height: 20),
+              const AddTag(),
+              const SizedBox(
+                height: 50,
+              ),
+              PostSubmitButton(
+                title: "Share!",
+                color: AppColors.main,
+                textColor: AppColors.white,
+                onTap: () {},
+              ),
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: CustomBottomNavigationBar(
+        selectedIndex: 1,
       ),
     );
   }

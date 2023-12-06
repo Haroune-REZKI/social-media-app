@@ -9,7 +9,6 @@ class Settings extends StatefulWidget {
 
   @override
   State<Settings> createState() => _SettingsState();
-
 }
 
 class _SettingsState extends State<Settings> {
@@ -23,14 +22,25 @@ class _SettingsState extends State<Settings> {
           },
           child: const Icon(Icons.arrow_back),
         ),
-        title: Center(child: const Text("My Profile")),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.settings))],
+        title: const Center(
+          child: Text("My Profile"),
+        ),
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.settings))
+        ],
       ),
-      body: SingleChildScrollView(
-          child: Column(children: [Account(), Notifications(), Other()])),
-          bottomNavigationBar: CustomBottomNavigationBar(
-            selectedIndex: 0,
-          ),
+      body: const SingleChildScrollView(
+        child: Column(
+          children: [
+            Account(),
+            Notifications(),
+            Other(),
+          ],
+        ),
+      ),
+      bottomNavigationBar: CustomBottomNavigationBar(
+        selectedIndex: 2,
+      ),
     );
   }
 }

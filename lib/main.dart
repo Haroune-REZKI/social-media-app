@@ -6,6 +6,7 @@ import 'package:mobile_dev_project/features/authentication/views/signin_page.dar
 import 'package:mobile_dev_project/features/authentication/views/welcome_page.dart';
 import 'package:mobile_dev_project/features/categories/views/categories_feed.dart';
 import 'package:mobile_dev_project/features/feed/views/home_page.dart';
+import 'package:mobile_dev_project/features/posts/views/add_post.dart';
 import 'package:mobile_dev_project/features/settings/views/settings.dart';
 
 void main() async {
@@ -32,8 +33,8 @@ class MyApp extends StatelessWidget {
         '/settings': (context) => const Settings(),
         '/login_page': (context) => const SignIn(),
         '/sign_up_page': (context) => const SignUp(),
-        '/settings': (context) => const Settings(),
         '/feed': (context) => const HomeFeed(),
+        '/add_post': (context) => const AddPost()
       },
     );
   }
