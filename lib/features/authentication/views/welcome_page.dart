@@ -41,7 +41,7 @@ class WelcomePageState extends State<WelcomePage> {
                     color: AppColors.main,
                     textColor: AppColors.white,
                     onTap: () {
-                      Navigator.pushNamed(context, '/sign_up_page');
+                      Navigator.pushNamed(context, '/personal_info_page');
                     },
                   ),
                 ],
