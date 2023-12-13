@@ -9,6 +9,9 @@ import 'package:mobile_dev_project/features/feed/views/home_page.dart';
 import 'package:mobile_dev_project/features/posts/views/add_post.dart';
 import 'package:mobile_dev_project/features/profile/views/profile.dart';
 import 'package:mobile_dev_project/features/settings/views/settings.dart';
+import 'package:get/get.dart';
+
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); //
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Social Media Application',
       debugShowCheckedModeBanner: true,
       theme: ThemeData(

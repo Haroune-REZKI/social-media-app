@@ -3,6 +3,7 @@ import 'package:mobile_dev_project/config/colors.config.dart';
 import 'package:mobile_dev_project/features/authentication/components/login_button.dart';
 import 'package:mobile_dev_project/features/authentication/components/logo.dart';
 import 'package:mobile_dev_project/features/authentication/components/slogan.dart';
+import 'package:get/get.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -30,7 +31,7 @@ class WelcomePageState extends State<WelcomePage> {
                     color: AppColors.white,
                     textColor: AppColors.dark,
                     onTap: () {
-                      Navigator.pushNamed(context, '/login_page');
+                      Get.toNamed('/login_page');
                     },
                   ),
                   const SizedBox(
@@ -41,7 +42,7 @@ class WelcomePageState extends State<WelcomePage> {
                     color: AppColors.main,
                     textColor: AppColors.white,
                     onTap: () {
-                      Navigator.pushNamed(context, '/personal_info_page');
+                      Get.toNamed('/sign_up_page');
                     },
                   ),
                 ],

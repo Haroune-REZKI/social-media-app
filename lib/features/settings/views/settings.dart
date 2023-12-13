@@ -3,6 +3,7 @@ import 'package:mobile_dev_project/features/settings/components/account.dart';
 import 'package:mobile_dev_project/features/settings/components/notifications.dart';
 import 'package:mobile_dev_project/features/settings/components/other.dart';
 import 'package:mobile_dev_project/utils/components/bottom_navigation_bar.dart';
+import 'package:get/get.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -18,7 +19,7 @@ class _SettingsState extends State<Settings> {
       appBar: AppBar(
         leading: InkWell(
           onTap: () {
-            Navigator.pop(context);
+            Get.back();
           },
           child: const Icon(Icons.arrow_back),
         ),

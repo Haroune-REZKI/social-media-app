@@ -5,6 +5,7 @@ import 'package:mobile_dev_project/features/authentication/components/login_butt
 import 'package:mobile_dev_project/features/authentication/components/personal_info_form.dart';
 import 'package:mobile_dev_project/features/authentication/components/customized_text.dart';
 import 'package:mobile_dev_project/features/authentication/components/sign_up_form.dart';
+import 'package:get/get.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -21,7 +22,7 @@ class _PersonalInfoPageState extends State<SignUp> {
         appBar: AppBar(
           leading: InkWell(
             onTap: () {
-              Navigator.pop(context);
+              Get.back();
             },
             child: const Icon(Icons.arrow_back),
           ),
@@ -47,7 +48,7 @@ class _PersonalInfoPageState extends State<SignUp> {
                         onTap: () {
                           if (SignUpForm.signupFormKey.currentState!
                               .validate()) {
-                            Navigator.pushNamedAndRemoveUntil(context, '/feed', (r)=> false);
+                            Get.toNamed('/personal_info_page');
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
