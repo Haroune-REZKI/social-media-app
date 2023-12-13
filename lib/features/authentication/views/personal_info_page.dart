@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
 import 'package:mobile_dev_project/features/authentication/components/form_submit_button.dart';
-import 'package:mobile_dev_project/features/authentication/components/input_field.dart';
 import 'package:mobile_dev_project/features/authentication/components/login_button.dart';
 import 'package:mobile_dev_project/features/authentication/components/personal_info_form.dart';
 import 'package:mobile_dev_project/features/authentication/components/customized_text.dart';
@@ -45,8 +44,16 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                           color: AppColors.main,
                           textColor: AppColors.white,
                           onTap: () {
-                            Navigator.pushNamed(context, '/sign_up');
-                          }),
+                      if (PersonalInfoForm.personalInfoFormKey.currentState!.validate()) {
+                        Navigator.pushNamed(context, '/sign_up_page');
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                              content:
+                                  Text('Please fix the errors in the form')),
+                        );
+                      }
+                    },),
                       Text('OR'),
                       LoginButton(
                           title: "Sign In with Google",
