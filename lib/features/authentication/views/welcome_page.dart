@@ -18,7 +18,7 @@ class WelcomePageState extends State<WelcomePage> {
     return Scaffold(
       body: Center(
         child: Container(
-          margin: const EdgeInsets.all(40),
+          margin: const EdgeInsets.fromLTRB(40, 60, 40, 60),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
