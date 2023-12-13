@@ -17,7 +17,11 @@ class _FeedPostsListingState extends State<FeedPostsListing> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-      child: ListView.builder(itemBuilder: (context, index) {
+      child: ListView.builder(
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+        
         if (index < widget.postsSample.length) {
           return FeedPost(
             postContent: widget.postsSample[index],
