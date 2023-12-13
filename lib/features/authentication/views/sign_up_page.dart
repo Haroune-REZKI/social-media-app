@@ -47,7 +47,7 @@ class _PersonalInfoPageState extends State<SignUp> {
                         onTap: () {
                           if (SignUpForm.signupFormKey.currentState!
                               .validate()) {
-                            Navigator.pushNamed(context, '/feed');
+                            Navigator.pushNamedAndRemoveUntil(context, '/feed', (r)=> false);
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(

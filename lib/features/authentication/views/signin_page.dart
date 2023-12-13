@@ -53,7 +53,7 @@ class _SignInState extends State<SignIn> {
                     textColor: AppColors.white,
                     onTap: () {
                       if (SignInForm.signinFormKey.currentState!.validate()) {
-                        Navigator.pushNamed(context, '/feed');
+                        Navigator.pushNamedAndRemoveUntil(context, '/feed', (r)=> false);
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
