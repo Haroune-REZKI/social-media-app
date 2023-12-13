@@ -15,11 +15,14 @@ class HomeFeed extends StatelessWidget {
       appBar: CustomAppBar(parentContext: context),
       body: Container(
         margin: const EdgeInsets.only(top: 20),
-        child: Column(
-          children: [
-            FeedCategoriesListing(),
-            Expanded(child: FeedPostsListing())
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            
+            children: [
+              FeedCategoriesListing(),
+               FeedPostsListing()
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: CustomBottomNavigationBar(
