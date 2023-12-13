@@ -5,6 +5,7 @@ import 'package:mobile_dev_project/features/posts/components/add_tag.dart';
 import 'package:mobile_dev_project/features/posts/components/post_submit_button.dart';
 import 'package:mobile_dev_project/features/posts/components/post_text_field.dart';
 import 'package:mobile_dev_project/utils/components/bottom_navigation_bar.dart';
+import 'package:get/get.dart';
 
 class AddPost extends StatefulWidget {
   const AddPost({super.key});
@@ -25,7 +26,7 @@ class _AddPostState extends State<AddPost> {
       appBar: AppBar(
         leading: InkWell(
           onTap: () {
-            Navigator.pop(context);
+            Get.back();
           },
           child: const Icon(Icons.arrow_back),
         ),
