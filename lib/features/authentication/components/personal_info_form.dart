@@ -1,31 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
 import 'package:mobile_dev_project/features/authentication/components/form_input_field.dart';
 import 'package:mobile_dev_project/features/authentication/components/gender_selector.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:mobile_dev_project/features/authentication/controllers/personal_info_controller.dart';
 
-class PersonalInfoForm extends StatefulWidget {
+class PersonalInfoForm extends StatelessWidget {
+  static PersonalInfoController personalInfoController =
+      Get.put<PersonalInfoController>(PersonalInfoController());
+
   static final personalInfoFormKey = GlobalKey<FormState>();
   PersonalInfoForm({
     super.key,
   });
 
   @override
-  State<PersonalInfoForm> createState() => _PersonalInfoFormState();
-}
-
-class _PersonalInfoFormState extends State<PersonalInfoForm> {
-  TextEditingController fullNameController = TextEditingController();
-
-  TextEditingController emailController = TextEditingController();
-
-  TextEditingController phoneNumberController = TextEditingController();
-
-  @override
   Widget build(BuildContext context) {
     return Form(
-      key: PersonalInfoForm.personalInfoFormKey,
+      key: personalInfoFormKey,
       child: Container(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,7 +28,7 @@ class _PersonalInfoFormState extends State<PersonalInfoForm> {
             padding: const EdgeInsets.all(8.0),
             child: FormInputField(
               title: "Full Name",
-              controller: fullNameController,
+              controller: personalInfoController.fullName,
               icon: Icon(Icons.person),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -48,7 +42,7 @@ class _PersonalInfoFormState extends State<PersonalInfoForm> {
             padding: const EdgeInsets.all(8.0),
             child: FormInputField(
               title: "Email",
-              controller: emailController,
+              controller: personalInfoController.email,
               icon: const Icon(Icons.email),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -67,7 +61,7 @@ class _PersonalInfoFormState extends State<PersonalInfoForm> {
           Padding(
               padding: const EdgeInsets.all(8.0),
               child: IntlPhoneField(
-                controller: phoneNumberController,
+                controller: personalInfoController.phoneNumber,
                 decoration: InputDecoration(
                     labelText: 'Phone Number',
                     enabledBorder: OutlineInputBorder(

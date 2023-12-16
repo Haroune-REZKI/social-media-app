@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_dev_project/features/authentication/components/form_input_field.dart';
+import 'package:mobile_dev_project/features/authentication/controllers/sign_up_controller.dart';
 
 class SignUpForm extends StatefulWidget {
   static final signupFormKey = GlobalKey<FormState>();
@@ -10,9 +12,7 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SIgnUpFormState extends State<SignUpForm> {
-  TextEditingController usernameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
+  SignUpController signUpController = Get.put<SignUpController>(SignUpController());
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class _SIgnUpFormState extends State<SignUpForm> {
             padding: const EdgeInsets.all(8.0),
             child: FormInputField(
               title: "Username",
-              controller: usernameController,
+              controller: signUpController.username,
               icon: Icon(Icons.person),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -40,7 +40,7 @@ class _SIgnUpFormState extends State<SignUpForm> {
             padding: const EdgeInsets.all(8.0),
             child: FormInputField(
               title: "Passsword",
-              controller: passwordController,
+              controller: signUpController.password,
               icon: const Icon(Icons.lock),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -60,14 +60,14 @@ class _SIgnUpFormState extends State<SignUpForm> {
             padding: const EdgeInsets.all(8.0),
             child: FormInputField(
               title: "Confirm Passsword",
-              controller: confirmPasswordController,
+              controller: signUpController.confirmPassword,
               icon: const Icon(Icons.lock),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please confirm the password';
                 }
                 // Check if the password matches the confirmation
-                if (value != passwordController.text) {
+                if (value != signUpController.password.text) {
                   return 'Passwords do not match';
                 }
                 return null;

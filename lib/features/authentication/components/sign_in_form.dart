@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_dev_project/features/authentication/components/form_input_field.dart';
 import 'package:mobile_dev_project/features/authentication/components/form_submit_button.dart';
+import 'package:mobile_dev_project/features/authentication/controllers/sign_in_controller.dart';
 
 class SignInForm extends StatelessWidget {
-  TextEditingController usernameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  SignInController signInController = Get.put<SignInController>(SignInController());
   static final signinFormKey = GlobalKey<FormState>();
 
   SignInForm({super.key});
@@ -18,7 +19,7 @@ class SignInForm extends StatelessWidget {
             children: [
               FormInputField(
                 title: 'username',
-                controller: usernameController,
+                controller: signInController.username,
                 icon: Icon(Icons.person),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -32,7 +33,7 @@ class SignInForm extends StatelessWidget {
               ),
               FormInputField(
                 title: 'Password',
-                controller: passwordController,
+                controller: signInController.password,
                 icon: Icon(Icons.lock),
                 isPassword: true,
                 validator: (value) {
