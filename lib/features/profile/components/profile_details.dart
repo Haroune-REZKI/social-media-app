@@ -14,6 +14,8 @@ class _ProfileDetailsState extends State<ProfileDetails> {
   Widget build(BuildContext context) {
     return Center(
       child: ListView(
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
         children: [Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -52,7 +54,7 @@ class _ProfileDetailsState extends State<ProfileDetails> {
             SizedBox(height: 40,),
             Statistics(),
             SizedBox(height: 40,),
-            Pages(),
+            Pages(), //slider (and tapbar?)
           ],
         )],
       ),
