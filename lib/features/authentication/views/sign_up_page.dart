@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
+import 'package:mobile_dev_project/features/authentication/components/already_user.dart';
+import 'package:mobile_dev_project/features/authentication/components/do_not_have_an_account.dart';
 import 'package:mobile_dev_project/features/authentication/components/form_submit_button.dart';
 import 'package:mobile_dev_project/features/authentication/components/login_button.dart';
 import 'package:mobile_dev_project/features/authentication/components/personal_info_form.dart';
@@ -63,7 +65,8 @@ class _PersonalInfoPageState extends State<SignUp> {
                           title: "Sign In with Google",
                           color: AppColors.white,
                           textColor: AppColors.dark,
-                          onTap: () {})
+                          onTap: () {}),
+                        const AlreadyHaveAnAccount(),
                     ],
                   ),
                 )

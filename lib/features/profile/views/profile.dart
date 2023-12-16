@@ -23,9 +23,7 @@ class _ProfileState extends State<Profile> {
         title: Center(child: const Text("My Profile")),
         actions: [IconButton(onPressed: () {}, icon: Icon(Icons.settings))],
       ),
-      body: Center(
-        child: ProfileDetails(),
-        ),
+      body: SingleChildScrollView(child: ProfileDetails()),
       bottomNavigationBar: CustomBottomNavigationBar(
         selectedIndex: 0,
       ),
