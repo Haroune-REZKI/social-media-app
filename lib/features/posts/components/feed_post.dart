@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_dev_project/features/posts/business/entities/post.dart';
 import 'package:mobile_dev_project/features/posts/components/feed_post_content.dart';
 import 'package:mobile_dev_project/features/posts/components/feed_post_footer.dart';
 import 'package:mobile_dev_project/features/posts/components/post_header.dart';
-import 'package:mobile_dev_project/features/posts/handlers/classes/post.dart';
 import 'package:mobile_dev_project/features/posts/views/single_post.dart';
 
 class FeedPost extends StatefulWidget {
@@ -45,9 +45,10 @@ class _FeedPostState extends State<FeedPost> {
       child: Column(
         children: [
           PostHeader(
-            fullName: widget.postContent.fullname,
-            userName: widget.postContent.username,
-            avatar: widget.postContent.avatar,
+            fullName: widget.postContent.author.fullname,
+            userName: widget.postContent.author.username,
+            avatar:
+                "https://4.bp.blogspot.com/-Jx21kNqFSTU/UXemtqPhZCI/AAAAAAAAh74/BMGSzpU6F48/s1600/funny-cat-pictures-047-001.jpg",
           ),
           const SizedBox(
             height: 10,
@@ -56,18 +57,18 @@ class _FeedPostState extends State<FeedPost> {
             onTap: _handleNavigation,
             child: PostContent(
               content: widget.postContent.content,
-              hasImage: widget.postContent.hasImage,
+              hasImage: false,
             ),
           ),
           const SizedBox(
             height: 10,
           ),
           PostFooter(
-            likes: widget.postContent.likes,
-            isLiked: widget.postContent.isLiked,
-            comments: widget.postContent.comments,
-            hasBookmarked: widget.postContent.hasBookmarked,
-            timestamps: widget.postContent.timestamps,
+            likes: widget.postContent.numberOfLikes,
+            isLiked: widget.postContent.hasLiked,
+            comments: widget.postContent.comments.length,
+            hasBookmarked: false,
+            timestamps: widget.postContent.createdAt,
             isSinglePostView: widget.isSinglePostView,
           )
         ],
