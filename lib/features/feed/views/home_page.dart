@@ -17,11 +17,7 @@ class HomeFeed extends StatelessWidget {
         margin: const EdgeInsets.only(top: 20),
         child: SingleChildScrollView(
           child: Column(
-            
-            children: [
-              FeedCategoriesListing(),
-               FeedPostsListing()
-            ],
+            children: [FeedCategoriesListing(), FeedPostsListing()],
           ),
         ),
       ),

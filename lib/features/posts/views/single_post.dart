@@ -41,10 +41,10 @@ class _SinglePostState extends State<SinglePost> {
       ),
       body: ListView(
         children: [
-          FeedPost(
-            postContent: postsExample[widget.postId],
-            isSinglePostView: true,
-          ),
+          // FeedPost(
+          //   postContent: postsExample[widget.postId],
+          //   isSinglePostView: true,
+          // ),
           const SizedBox(
             height: 10,
           ),

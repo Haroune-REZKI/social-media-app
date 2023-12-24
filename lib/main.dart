@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         // to be filled
-        "/": (context) => const WelcomePage(),
+        "/": (context) => const HomeFeed(),
         '/settings': (context) => const Settings(),
         '/login_page': (context) => const SignIn(),
         '/sign_up_page': (context) => const SignUp(),

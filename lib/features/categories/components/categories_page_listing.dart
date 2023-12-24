@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_dev_project/features/posts/business/entities/post.dart';
 import 'package:mobile_dev_project/features/posts/components/feed_post.dart';
-import 'package:mobile_dev_project/features/posts/handlers/classes/post.dart';
-import 'package:mobile_dev_project/features/posts/handlers/constants/main.dart';
 
 class CategoriesPageListing extends StatelessWidget {
-  final List<Post> postsSample = postsExample;
+  final List<Post> postsSample = [];
 
   CategoriesPageListing({super.key});
 
