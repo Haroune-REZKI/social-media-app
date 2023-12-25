@@ -10,19 +10,10 @@ import 'package:mobile_dev_project/features/feed/data/repositories/list_of_posts
 
 class ListOfPostsController extends GetxController
     with StateMixin<ListOfPosts> {
-  // final postsFuture = Future.wait([]).obs;
-  // final hasFailed = false.obs;
-
-  // final posts = ListOfPosts(posts: []).obs;
-
   @override
   void onInit() {
     super.onInit();
     fetchPosts();
-
-    // postsFuture.value = Future.wait([posts.value]);
-
-    // update(['main']);
   }
 
   fetchPosts() async {
@@ -38,7 +29,6 @@ class ListOfPostsController extends GetxController
 
     final failureOrListOfPosts = await GetListOfPosts(repository).call();
 
-    print("DATA CONTROLLER ${failureOrListOfPosts.toString()}");
     failureOrListOfPosts.fold(
       (failure) => {
         // hasFailed.value = true;
