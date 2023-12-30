@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
 import 'package:mobile_dev_project/features/categories/handlers/classes/category.dart';
 import 'package:mobile_dev_project/features/categories/views/categories_feed.dart';
@@ -10,12 +11,7 @@ class FeedSingleCategory extends StatefulWidget {
   FeedSingleCategory({super.key, required this.categoryData});
 
   void handleRedirection(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => CategoriesFeed(pageCategory: categoryData),
-      ),
-    );
+    Get.to(CategoriesFeed(pageCategory: categoryData));
   }
 
   @override

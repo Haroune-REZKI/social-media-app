@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
 import 'package:mobile_dev_project/features/categories/handlers/classes/category.dart';
 
@@ -18,7 +19,7 @@ class _CustomSilverAppBarState extends State<CustomSilverAppBar> {
     return SliverAppBar(
       leading: GestureDetector(
         onTap: () {
-          Navigator.pop(context);
+          Get.back();
         },
         child: const Icon(
           Icons.arrow_back,

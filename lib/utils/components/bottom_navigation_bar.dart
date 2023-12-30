@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
 
 // The icons mapping is as follows:
@@ -33,7 +34,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   ];
 
   void _handleNavIcon(BuildContext context, int index) {
-    Navigator.pushNamed(context, _listOfIcons[index].routeName);
+    Get.toNamed(_listOfIcons[index].routeName);
   }
 
   @override

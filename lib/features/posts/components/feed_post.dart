@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_dev_project/features/posts/business/entities/post.dart';
 import 'package:mobile_dev_project/features/posts/components/feed_post_content.dart';
 import 'package:mobile_dev_project/features/posts/components/feed_post_footer.dart';
@@ -18,12 +19,7 @@ class FeedPost extends StatefulWidget {
 
 class _FeedPostState extends State<FeedPost> {
   void _handleNavigation() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => SinglePost(postId: widget.postContent.id),
-      ),
-    );
+    Get.to(SinglePost(postId: widget.postContent.id));
   }
 
   @override

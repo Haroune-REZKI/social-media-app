@@ -13,7 +13,6 @@ class Pages extends StatefulWidget {
 class _PagesState extends State<Pages> {
   bool isPosts = true;
   int page = 0;
-  var _pageController = PageController();
   @override
   Widget build(BuildContext context) {
     return Column(
