@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_dev_project/features/profile/components/profile_details.dart';
 import 'package:mobile_dev_project/utils/components/bottom_navigation_bar.dart';
 
@@ -16,12 +17,14 @@ class _ProfileState extends State<Profile> {
       appBar: AppBar(
         leading: InkWell(
           onTap: () {
-            Navigator.pop(context);
+            Get.back();
           },
           child: const Icon(Icons.arrow_back),
         ),
         title: Center(child: const Text("My Profile")),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.settings))],
+        actions: [IconButton(onPressed: () {
+          Get.toNamed("/settings");
+        }, icon: Icon(Icons.settings))],
       ),
       body: SingleChildScrollView(child: ProfileDetails()),
       bottomNavigationBar: CustomBottomNavigationBar(

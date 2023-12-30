@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
 import 'package:mobile_dev_project/config/font.config.dart';
 
@@ -13,7 +14,7 @@ class CustomAppBar extends AppBar {
           title: Text("AppName", style: AppTextStyles.title),
           leading: GestureDetector(
             onTap: () {
-              Navigator.pushNamed(parentContext, '/profile');
+              Get.toNamed('/profile');
             },
             child: Container(
               height: 30,
@@ -37,7 +38,7 @@ class CustomAppBar extends AppBar {
                     color: Colors.black,
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(parentContext, '/settings');
+                    Get.toNamed('/settings');
                   },
                   splashColor: Colors.black,
                 ),
