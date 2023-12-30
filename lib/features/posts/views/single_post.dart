@@ -6,6 +6,7 @@ import 'package:mobile_dev_project/features/comments/handlers/constants/main.dar
 import 'package:mobile_dev_project/features/posts/components/feed_post.dart';
 import 'package:mobile_dev_project/features/posts/handlers/constants/main.dart';
 import 'package:mobile_dev_project/utils/components/bottom_navigation_bar.dart';
+import 'package:get/get.dart';
 
 class SinglePost extends StatefulWidget {
   final int postId;
@@ -23,7 +24,7 @@ class _SinglePostState extends State<SinglePost> {
       appBar: AppBar(
         leading: GestureDetector(
           onTap: () {
-            Navigator.pop(context);
+            Get.back();
           },
           child: const Icon(
             Icons.arrow_back,
@@ -40,10 +41,10 @@ class _SinglePostState extends State<SinglePost> {
       ),
       body: ListView(
         children: [
-          FeedPost(
-            postContent: postsExample[widget.postId],
-            isSinglePostView: true,
-          ),
+          // FeedPost(
+          //   postContent: postsExample[widget.postId],
+          //   isSinglePostView: true,
+          // ),
           const SizedBox(
             height: 10,
           ),

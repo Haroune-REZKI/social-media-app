@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
 
 class DoNotHaveAnAccount extends StatelessWidget {
@@ -13,10 +14,15 @@ class DoNotHaveAnAccount extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text("Do not have an account? "),
-          Text(
-            "Sign up",
-            style: TextStyle(
-                color: AppColors.main, decoration: TextDecoration.underline),
+          GestureDetector(
+            onTap: () {
+              Get.toNamed('/sign_up_page');
+            },
+            child: Text(
+              "Sign up",
+              style: TextStyle(
+                  color: AppColors.main, decoration: TextDecoration.underline),
+            ),
           )
         ],
       ),

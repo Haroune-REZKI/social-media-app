@@ -3,6 +3,7 @@ import 'package:mobile_dev_project/config/colors.config.dart';
 import 'package:mobile_dev_project/features/authentication/components/login_button.dart';
 import 'package:mobile_dev_project/features/authentication/components/logo.dart';
 import 'package:mobile_dev_project/features/authentication/components/slogan.dart';
+import 'package:get/get.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class WelcomePageState extends State<WelcomePage> {
     return Scaffold(
       body: Center(
         child: Container(
-          margin: const EdgeInsets.all(40),
+          margin: const EdgeInsets.fromLTRB(40, 60, 40, 60),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -25,23 +26,23 @@ class WelcomePageState extends State<WelcomePage> {
               const Slogan(),
               Column(
                 children: [
-                  LoginButton(
+                  SubmitButton(
                     title: "Login",
                     color: AppColors.white,
                     textColor: AppColors.dark,
                     onTap: () {
-                      Navigator.pushNamed(context, '/login_page');
+                      Get.toNamed('/login_page');
                     },
                   ),
                   const SizedBox(
                     height: 30,
                   ),
-                  LoginButton(
+                  SubmitButton(
                     title: "Sign Up",
                     color: AppColors.main,
                     textColor: AppColors.white,
                     onTap: () {
-                      Navigator.pushNamed(context, '/sign_up_page');
+                      Get.toNamed('/sign_up_page');
                     },
                   ),
                 ],

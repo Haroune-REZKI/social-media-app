@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gender_picker/source/enums.dart';
 import 'package:gender_picker/source/gender_picker.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:mobile_dev_project/features/authentication/components/personal_info_form.dart';
+import 'package:mobile_dev_project/features/authentication/controllers/personal_info_controller.dart';
+import 'package:mobile_dev_project/features/authentication/controllers/personal_info_controller.dart';
 
 class GenderSelector extends StatelessWidget {
   const GenderSelector({super.key});
@@ -17,7 +22,9 @@ class GenderSelector extends StatelessWidget {
         showOtherGender: _showOther,
         verticalAlignedText: _alignment,
         onChanged: (Gender? gender) {
-          print(gender);
+        PersonalInfoController personalInfoController = Get.find<PersonalInfoController>();
+        personalInfoController.selectGender(gender!);
+            print(PersonalInfoForm.personalInfoController.selectedGender);
         },
         selectedGender: Gender.Male, //By Default
         selectedGenderTextStyle:

@@ -3,9 +3,9 @@ import 'package:mobile_dev_project/config/colors.config.dart';
 
 // ignore: must_be_immutable
 class PostFooter extends StatefulWidget {
-  String likes;
+  int likes;
   bool isLiked;
-  String comments;
+  int comments;
   bool hasBookmarked;
   String timestamps;
 
@@ -42,7 +42,7 @@ class _PostFooterState extends State<PostFooter> {
                     onTap: () {
                       setState(() {
                         widget.isLiked = false;
-                        widget.likes = (int.parse(widget.likes) - 1).toString();
+                        widget.likes = widget.likes - 1;
                       });
                     },
                     child: const Icon(
@@ -56,7 +56,7 @@ class _PostFooterState extends State<PostFooter> {
                     onTap: () {
                       setState(() {
                         widget.isLiked = true;
-                        widget.likes = (int.parse(widget.likes) + 1).toString();
+                        widget.likes = widget.likes + 1;
                       });
                     },
                     child: const Icon(
@@ -67,7 +67,7 @@ class _PostFooterState extends State<PostFooter> {
                 const SizedBox(
                   width: 2,
                 ),
-                Text(widget.likes)
+                Text(widget.likes.toString())
               ],
             ),
             const SizedBox(
@@ -85,7 +85,7 @@ class _PostFooterState extends State<PostFooter> {
                   const SizedBox(
                     width: 2,
                   ),
-                  Text(widget.comments),
+                  Text(widget.comments.toString()),
                   const SizedBox(
                     width: 10,
                   ),

@@ -1,32 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mobile_dev_project/features/feed/controllers/list_of_posts.dart';
 import 'package:mobile_dev_project/features/posts/components/feed_post.dart';
-import 'package:mobile_dev_project/features/posts/handlers/classes/post.dart';
-import 'package:mobile_dev_project/features/posts/handlers/constants/main.dart';
 
-class FeedPostsListing extends StatefulWidget {
+class FeedPostsListing extends StatelessWidget {
   FeedPostsListing({super.key});
 
-  final List<Post> postsSample = postsExample;
+  final ListOfPostsController postsController =
+      Get.put(ListOfPostsController());
 
-  @override
-  State<FeedPostsListing> createState() => _FeedPostsListingState();
-}
-
-class _FeedPostsListingState extends State<FeedPostsListing> {
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-      child: ListView.builder(itemBuilder: (context, index) {
-        if (index < widget.postsSample.length) {
-          return FeedPost(
-            postContent: widget.postsSample[index],
-            isSinglePostView: false,
-          );
-        }
+      child: postsController.obx(
+        (state) => ListView.builder(
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            if (index < (state?.posts.length ?? 0)) {
+              return FeedPost(
+                postContent: state!.posts[index],
+                isSinglePostView: false,
+              );
+            }
 
-        return null;
-      }),
+            return null;
+          },
+        ),
+        onEmpty: Padding(
+          padding: EdgeInsets.symmetric(vertical: context.height * 0.3),
+          child: const Center(child: Text("Data is Empty")),
+        ),
+        onError: (e) => Padding(
+          padding: EdgeInsets.symmetric(
+              vertical: context.height * 0.3, horizontal: 20),
+          child: Center(
+            child: Text(
+              "$e",
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
+        onLoading: const Padding(
+          padding: EdgeInsets.only(top: 30),
+          child: Center(child: CircularProgressIndicator()),
+        ),
+      ),
     );
   }
 }

@@ -29,7 +29,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   final List<NavItems> _listOfIcons = [
     NavItems(navIcon: Icons.home_filled, routeName: "/feed"),
     NavItems(navIcon: Icons.add_box, routeName: "/add_post"),
-    NavItems(navIcon: Icons.person, routeName: "/settings"),
+    NavItems(navIcon: Icons.person, routeName: "/profile"),
   ];
 
   void _handleNavIcon(BuildContext context, int index) {
