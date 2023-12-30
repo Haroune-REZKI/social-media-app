@@ -26,7 +26,7 @@ class WelcomePageState extends State<WelcomePage> {
               const Slogan(),
               Column(
                 children: [
-                  LoginButton(
+                  SubmitButton(
                     title: "Login",
                     color: AppColors.white,
                     textColor: AppColors.dark,
@@ -37,7 +37,7 @@ class WelcomePageState extends State<WelcomePage> {
                   const SizedBox(
                     height: 30,
                   ),
-                  LoginButton(
+                  SubmitButton(
                     title: "Sign Up",
                     color: AppColors.main,
                     textColor: AppColors.white,

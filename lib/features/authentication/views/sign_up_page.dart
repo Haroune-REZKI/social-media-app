@@ -61,12 +61,12 @@ class _PersonalInfoPageState extends State<SignUp> {
                         },
                       ),
                       Text('OR'),
-                      LoginButton(
+                      SubmitButton(
                           title: "Sign In with Google",
                           color: AppColors.white,
                           textColor: AppColors.dark,
                           onTap: () {}),
-                        const AlreadyHaveAnAccount(),
+                      const AlreadyHaveAnAccount(),
                     ],
                   ),
                 )

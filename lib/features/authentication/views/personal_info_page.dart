@@ -58,7 +58,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                         },
                       ),
                       Text('OR'),
-                      LoginButton(
+                      SubmitButton(
                           title: "Sign In with Google",
                           color: AppColors.white,
                           textColor: AppColors.dark,

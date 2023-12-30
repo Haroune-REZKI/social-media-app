@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
 
-class LoginButton extends StatelessWidget {
+class SubmitButton extends StatelessWidget {
   String title;
   Color color;
   Color textColor;
   void Function()? onTap;
 
-  LoginButton(
+  SubmitButton(
       {super.key,
       required this.title,
       required this.color,
