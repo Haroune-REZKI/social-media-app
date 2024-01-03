@@ -14,8 +14,14 @@ class ListOfPostsRemoteDataSourceImpl implements ListOfPostsRemoteDataSource {
 
   @override
   Future<ListOfPostsModel> getListOfPosts() async {
-    final response = await dio.get("$API_URL/posts",
-        options: Options(headers: {"Authorization": "Bearer $USER_TOKEN"}));
+    final response = await dio.get(
+      "$API_URL/posts",
+      options: Options(
+        headers: {
+          "Authorization": "Bearer $USER_TOKEN",
+        },
+      ),
+    );
 
     if (response.statusCode == 200) {
       print("RECEIVED DATA CORRECTLY");
