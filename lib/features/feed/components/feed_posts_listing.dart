@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_dev_project/features/feed/controllers/list_of_posts.dart';
 import 'package:mobile_dev_project/features/posts/components/feed_post.dart';
+import 'package:mobile_dev_project/utils/components/custom_circular_progress_indicator.dart';
 
 class FeedPostsListing extends StatelessWidget {
   FeedPostsListing({super.key});
@@ -42,10 +43,7 @@ class FeedPostsListing extends StatelessWidget {
             ),
           ),
         ),
-        onLoading: const Padding(
-          padding: EdgeInsets.only(top: 30),
-          child: Center(child: CircularProgressIndicator()),
-        ),
+        onLoading: const CustomCircularProgressIndicator(),
       ),
     );
   }

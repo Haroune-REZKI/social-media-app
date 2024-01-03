@@ -34,7 +34,9 @@ class _CategoriesFeedState extends State<CategoriesFeed> {
               ),
             ),
           ),
-          CategoriesPageListing(),
+          CategoriesPageListing(
+            categoryId: widget.pageCategory.id,
+          ),
         ],
       ),
     );

@@ -7,12 +7,18 @@ import 'package:mobile_dev_project/features/feed/business/usecase/get_list_of_po
 import 'package:mobile_dev_project/features/feed/data/datasource/remote_data_source.dart';
 import 'package:mobile_dev_project/features/feed/data/repositories/list_of_posts_repository_impl.dart';
 
-class ListOfPostsController extends GetxController
+class ListOfPostsByCategoryController extends GetxController
     with StateMixin<ListOfPosts> {
+  int? categoryId;
+
   @override
   void onInit() {
     super.onInit();
     fetchPosts();
+  }
+
+  void setCategoryId(int category) {
+    categoryId = category;
   }
 
   fetchPosts() async {
@@ -26,7 +32,10 @@ class ListOfPostsController extends GetxController
       ),
     );
 
-    final failureOrListOfPosts = await GetListOfPosts(repository).call();
+    print("CATEGORY ID $categoryId");
+    
+    final failureOrListOfPosts =
+        await GetListOfPosts(repository).call(categoryId);
 
     failureOrListOfPosts.fold(
       (failure) => {

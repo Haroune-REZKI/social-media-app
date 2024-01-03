@@ -16,12 +16,12 @@ class ListOfPostsRepositoryImpl implements ListOfPostsRepository {
   });
 
   @override
-  Future<Either<Failure, ListOfPostsModel>> getListOfPosts() async {
+  Future<Either<Failure, ListOfPostsModel>> getListOfPosts([int? categoryId]) async {
     bool isConnected = await networkInfo.isConnected!;
 
     if (isConnected) {
       try {
-        final listOfPosts = await remoteDataSource.getListOfPosts();
+        final listOfPosts = await remoteDataSource.getListOfPosts(categoryId);
 
         return Right(listOfPosts);
       } on ServerException {
