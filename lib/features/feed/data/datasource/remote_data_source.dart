@@ -4,7 +4,7 @@ import 'package:mobile_dev_project/core/error/exceptions.dart';
 import 'package:mobile_dev_project/features/feed/data/models/list_of_posts.dart';
 
 abstract class ListOfPostsRemoteDataSource {
-  Future<ListOfPostsModel> getListOfPosts();
+  Future<ListOfPostsModel> getListOfPosts([int? categoryId]);
 }
 
 class ListOfPostsRemoteDataSourceImpl implements ListOfPostsRemoteDataSource {
@@ -13,15 +13,31 @@ class ListOfPostsRemoteDataSourceImpl implements ListOfPostsRemoteDataSource {
   ListOfPostsRemoteDataSourceImpl({required this.dio});
 
   @override
-  Future<ListOfPostsModel> getListOfPosts() async {
-    final response = await dio.get(
-      "$API_URL/posts",
-      options: Options(
-        headers: {
-          "Authorization": "Bearer $USER_TOKEN",
+  Future<ListOfPostsModel> getListOfPosts([int? categoryId]) async {
+    dynamic response;
+
+    if (categoryId == null) {
+      response = await dio.get(
+        "$API_URL/posts",
+        options: Options(
+          headers: {
+            "Authorization": "Bearer $USER_TOKEN",
+          },
+        ),
+      );
+    } else {
+      response = await dio.get(
+        "$API_URL/posts",
+        options: Options(
+          headers: {
+            "Authorization": "Bearer $USER_TOKEN",
+          },
+        ),
+        queryParameters: {
+          "categoryId": categoryId,
         },
-      ),
-    );
+      );
+    }
 
     if (response.statusCode == 200) {
       print("RECEIVED DATA CORRECTLY");

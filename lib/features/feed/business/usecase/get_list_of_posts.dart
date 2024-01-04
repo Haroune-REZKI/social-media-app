@@ -8,7 +8,7 @@ class GetListOfPosts {
 
   GetListOfPosts(this.repository);
 
-  Future<Either<Failure, ListOfPosts>> call() async {
-    return await repository.getListOfPosts();
+  Future<Either<Failure, ListOfPosts>> call([int? categoryId]) async {
+    return await repository.getListOfPosts(categoryId);
   }
 }
