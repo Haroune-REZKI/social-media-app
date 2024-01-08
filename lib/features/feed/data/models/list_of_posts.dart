@@ -5,7 +5,7 @@ import 'package:mobile_dev_project/features/posts/business/entities/like.dart';
 import 'package:mobile_dev_project/features/posts/business/entities/post.dart';
 
 class ListOfPostsModel extends ListOfPosts {
-  ListOfPostsModel({required List<Post> posts}) : super(posts: posts);
+  ListOfPostsModel({required super.posts});
 
   factory ListOfPostsModel.fromJson(Map<String, dynamic> json) {
     List<Post> convertedListOfPosts = [];
