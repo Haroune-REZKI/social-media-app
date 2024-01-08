@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
-import 'package:mobile_dev_project/features/categories/handlers/classes/category.dart';
+import 'package:mobile_dev_project/features/categories/business/entities/category_news.dart';
 
 // ignore: must_be_immutable
 class CustomSilverAppBar extends StatefulWidget {
-  Category pageCategory;
+  CategoryNews pageCategory;
 
   CustomSilverAppBar({super.key, required this.pageCategory});
 
@@ -28,7 +28,8 @@ class _CustomSilverAppBarState extends State<CustomSilverAppBar> {
         ),
       ),
       expandedHeight: 450,
-      backgroundColor: widget.pageCategory.mainColor,
+      backgroundColor:
+          Color(int.parse(widget.pageCategory.categoryColor, radix: 16)),
       floating: false,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
@@ -39,7 +40,7 @@ class _CustomSilverAppBarState extends State<CustomSilverAppBar> {
                 height: 450,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(widget.pageCategory.bgImage),
+                    image: AssetImage(widget.pageCategory.categoryPicture),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -48,7 +49,8 @@ class _CustomSilverAppBarState extends State<CustomSilverAppBar> {
             Positioned.fill(
               child: Container(
                 decoration: BoxDecoration(
-                  color: widget.pageCategory.bgColor,
+                  color: Color(
+                      int.parse(widget.pageCategory.categoryColor, radix: 16)),
                 ),
                 padding: const EdgeInsets.only(left: 20, bottom: 30),
                 child: Column(
@@ -59,7 +61,7 @@ class _CustomSilverAppBarState extends State<CustomSilverAppBar> {
                       child: ConstrainedBox(
                         constraints: const BoxConstraints(maxWidth: 320),
                         child: Text(
-                          widget.pageCategory.description,
+                          widget.pageCategory.title,
                           style: const TextStyle(
                             color: AppColors.white,
                             fontSize: 24,
@@ -72,7 +74,7 @@ class _CustomSilverAppBarState extends State<CustomSilverAppBar> {
                       height: 20,
                     ),
                     Visibility(
-                      visible: !widget.pageCategory.isSubscribed,
+                      visible: true,
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
@@ -87,7 +89,9 @@ class _CustomSilverAppBarState extends State<CustomSilverAppBar> {
                             "Subscribe",
                             style: TextStyle(
                               fontSize: 18,
-                              color: widget.pageCategory.mainColor,
+                              color: Color(int.parse(
+                                  widget.pageCategory.categoryColor,
+                                  radix: 16)),
                               fontWeight: FontWeight.w600,
                             ),
                           ),

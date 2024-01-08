@@ -1,7 +1,10 @@
 import 'dart:math';
 
 import 'package:mobile_dev_project/config/colors.config.dart';
+import 'package:mobile_dev_project/features/categories/business/entities/category_news.dart';
 import 'package:mobile_dev_project/features/categories/handlers/classes/category.dart';
+
+List<CategoryNews> categoriesNewsExample = [];
 
 List<Category> categoriesExample = [
   Category(

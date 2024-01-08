@@ -1,4 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_dev_project/api/firebase_api.dart';
 import 'package:mobile_dev_project/features/authentication/views/email_sent_page.dart';
 import 'package:mobile_dev_project/features/authentication/views/forgot_password_page.dart';
 import 'package:mobile_dev_project/features/authentication/views/personal_info_page.dart';
@@ -13,11 +15,12 @@ import 'package:mobile_dev_project/features/posts/views/add_post.dart';
 import 'package:mobile_dev_project/features/profile/views/profile.dart';
 import 'package:mobile_dev_project/features/settings/views/settings.dart';
 import 'package:get/get.dart';
-
-
+import 'package:mobile_dev_project/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); //
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await FirebaseApi().initNotifications();
   runApp(const MyApp());
 }
 
@@ -47,7 +50,6 @@ class MyApp extends StatelessWidget {
         '/forgot_password': (context) => const ForgotPasswordPage(),
         '/email_sent': (context) => const EmailSent(),
         '/reset_password': (context) => const ResetPassword(),
-
       },
     );
   }

@@ -2,11 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
+import 'package:mobile_dev_project/features/categories/business/entities/category_news.dart';
 import 'package:mobile_dev_project/features/categories/handlers/classes/category.dart';
 import 'package:mobile_dev_project/features/categories/views/categories_feed.dart';
 
 class FavSingleCategory extends StatefulWidget {
-  Category categoryData;
+  CategoryNews categoryData;
 
   FavSingleCategory({super.key, required this.categoryData});
 
@@ -40,7 +41,7 @@ class _FavSingleCategoryState extends State<FavSingleCategory> {
                     width: 90,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage(widget.categoryData.bgImage),
+                        image: AssetImage(widget.categoryData.categoryPicture),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -49,7 +50,7 @@ class _FavSingleCategoryState extends State<FavSingleCategory> {
                 Positioned.fill(
                   child: Container(
                     decoration: BoxDecoration(
-                      color: widget.categoryData.bgColor,
+                      color: Color(int.parse(widget.categoryData.categoryColor)),
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
@@ -63,7 +64,7 @@ class _FavSingleCategoryState extends State<FavSingleCategory> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.categoryData.category,
+                    widget.categoryData.categoryName,
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
