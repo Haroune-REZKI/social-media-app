@@ -2,11 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
-import 'package:mobile_dev_project/features/categories/handlers/classes/category.dart';
+import 'package:mobile_dev_project/features/categories/business/entities/category_news.dart';
 import 'package:mobile_dev_project/features/categories/views/categories_feed.dart';
 
 class FeedSingleCategory extends StatefulWidget {
-  Category categoryData;
+  CategoryNews categoryData;
 
   FeedSingleCategory({super.key, required this.categoryData});
 
@@ -39,7 +39,7 @@ class _FeedSingleCategoryState extends State<FeedSingleCategory> {
                     width: 120,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage(widget.categoryData.bgImage),
+                        image: AssetImage(widget.categoryData.categoryPicture),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -48,7 +48,7 @@ class _FeedSingleCategoryState extends State<FeedSingleCategory> {
                 Positioned.fill(
                   child: Container(
                     decoration: BoxDecoration(
-                      color: widget.categoryData.bgColor,
+                      color: Color(int.parse(widget.categoryData.categoryColor)),
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
@@ -62,7 +62,7 @@ class _FeedSingleCategoryState extends State<FeedSingleCategory> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.categoryData.category,
+                    widget.categoryData.categoryName,
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
