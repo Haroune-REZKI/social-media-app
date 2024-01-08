@@ -1,0 +1,4 @@
+#Wed Jan 03 21:30:56 GMT+01:00 2024
+base.0=C\:\\Users\\TRETEC\\Desktop\\Mobile dev\\studies\\social-media-app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

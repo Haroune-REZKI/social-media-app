@@ -1,0 +1,1 @@
+ C:\\Users\\TRETEC\\Desktop\\Mobile\ dev\\studies\\social-media-app\\.dart_tool\\flutter_build\\7b1b57c58b3452fa7f84c5813e020c70\\native_assets.yaml: 
