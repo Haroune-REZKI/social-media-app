@@ -48,7 +48,8 @@ class _FeedSingleCategoryState extends State<FeedSingleCategory> {
                 Positioned.fill(
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Color(int.parse(widget.categoryData.categoryColor)),
+                      color: Color(int.parse(widget.categoryData.categoryColor))
+                          .withOpacity(.5),
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),

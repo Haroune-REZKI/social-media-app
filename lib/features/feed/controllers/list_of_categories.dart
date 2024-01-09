@@ -36,9 +36,9 @@ class ListOfCategoriesController extends GetxController
         change(ListOfCategoriesNews(categories: []),
             status: RxStatus.error(failure.toString()))
       },
-      (ListOfCategories) => {
+      (listOfCategories) => {
         // categories.value = ListOfCategories
-        change(ListOfCategories, status: RxStatus.success())
+        change(listOfCategories, status: RxStatus.success())
       },
     );
   }

@@ -29,7 +29,7 @@ class _CustomSilverAppBarState extends State<CustomSilverAppBar> {
       ),
       expandedHeight: 450,
       backgroundColor:
-          Color(int.parse(widget.pageCategory.categoryColor, radix: 16)),
+          Color(int.parse(widget.pageCategory.categoryColor)),
       floating: false,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
@@ -49,8 +49,7 @@ class _CustomSilverAppBarState extends State<CustomSilverAppBar> {
             Positioned.fill(
               child: Container(
                 decoration: BoxDecoration(
-                  color: Color(
-                      int.parse(widget.pageCategory.categoryColor, radix: 16)),
+                  color: Color(int.parse(widget.pageCategory.categoryColor)).withOpacity(.5),
                 ),
                 padding: const EdgeInsets.only(left: 20, bottom: 30),
                 child: Column(
@@ -89,9 +88,8 @@ class _CustomSilverAppBarState extends State<CustomSilverAppBar> {
                             "Subscribe",
                             style: TextStyle(
                               fontSize: 18,
-                              color: Color(int.parse(
-                                  widget.pageCategory.categoryColor,
-                                  radix: 16)),
+                              color: Color(
+                                  int.parse(widget.pageCategory.categoryColor)),
                               fontWeight: FontWeight.w600,
                             ),
                           ),

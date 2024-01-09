@@ -16,6 +16,7 @@ class ListOfCategoriesModel extends ListOfCategoriesNews {
           categoryColor: element["categoryColor"],
           categoryName: element["categoryName"],
           categoryPicture: element["categoryPicture"],
+          categoryId: element["categoryId"],
         );
 
         convertedListOfCategories.add(currentCategory);

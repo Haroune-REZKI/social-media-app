@@ -11,6 +11,7 @@ class CategoriesPageListing extends StatelessWidget {
       Get.put(ListOfPostsByCategoryController());
 
   CategoriesPageListing({super.key, required this.categoryId}) {
+    print("setting the id: ${categoryId}");
     postsController.setCategoryId(categoryId);
   }
 
