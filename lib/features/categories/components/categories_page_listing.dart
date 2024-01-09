@@ -5,14 +5,11 @@ import 'package:mobile_dev_project/features/posts/components/feed_post.dart';
 import 'package:mobile_dev_project/utils/components/custom_circular_progress_indicator.dart';
 
 class CategoriesPageListing extends StatelessWidget {
-  final int categoryId;
 
   final ListOfPostsByCategoryController postsController =
       Get.put(ListOfPostsByCategoryController());
 
-  CategoriesPageListing({super.key, required this.categoryId}) {
-    postsController.setCategoryId(categoryId);
-  }
+  CategoriesPageListing({super.key,});
 
   @override
   Widget build(BuildContext context) {
