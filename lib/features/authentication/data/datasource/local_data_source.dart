@@ -9,6 +9,15 @@ class UserLocalDataSource {
 
     String userJsonInString = jsonEncode(user.toJson());
     userPrefs.setString("user_data", userJsonInString);
+    userPrefs.setString("token", user.token ?? "");
+  }
+
+  void saveUsernameAndTokenToLocalCache(String username, String token) async {
+    SharedPreferences userPrefs = await SharedPreferences.getInstance();
+
+    userPrefs.setString("username", username);
+    userPrefs.setString("token", token);
+
   }
 
   Future<UserModel?> retrieveUserFromLocalCache() async {

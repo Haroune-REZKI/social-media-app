@@ -4,7 +4,6 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
 import 'package:mobile_dev_project/features/authentication/components/form_input_field.dart';
 import 'package:mobile_dev_project/features/authentication/components/gender_selector.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:mobile_dev_project/features/authentication/controllers/personal_info_controller.dart';
 
 class PersonalInfoForm extends StatelessWidget {
@@ -12,7 +11,7 @@ class PersonalInfoForm extends StatelessWidget {
       Get.put<PersonalInfoController>(PersonalInfoController());
 
   static final personalInfoFormKey = GlobalKey<FormState>();
-  PersonalInfoForm({
+  const PersonalInfoForm({
     super.key,
   });
 
@@ -20,8 +19,7 @@ class PersonalInfoForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       key: personalInfoFormKey,
-      child: Container(
-          child: Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
@@ -29,7 +27,7 @@ class PersonalInfoForm extends StatelessWidget {
             child: FormInputField(
               title: "Full Name",
               controller: personalInfoController.fullName,
-              icon: Icon(Icons.person),
+              icon: const Icon(Icons.person),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter a username';
@@ -63,12 +61,15 @@ class PersonalInfoForm extends StatelessWidget {
               child: IntlPhoneField(
                 controller: personalInfoController.phoneNumber,
                 decoration: InputDecoration(
-                    labelText: 'Phone Number',
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          width: 2, color: AppColors.main), //<-- SEE HERE
-                      borderRadius: BorderRadius.circular(30.0),
-                    )),
+                  labelText: 'Phone Number',
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                      width: 2,
+                      color: AppColors.main,
+                    ), //<-- SEE HERE
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                ),
                 initialCountryCode: 'DZ',
                 onChanged: (phone) {
                   //phone is an object (print phone to see)
@@ -76,17 +77,18 @@ class PersonalInfoForm extends StatelessWidget {
                 },
                 keyboardType: TextInputType.phone,
                 validator: (phone) {
-                  if (phone == null ||
-                      phone.completeNumber == null ||
-                      !isNumeric(phone.completeNumber)) {
+                  if (phone == null || !isNumeric(phone.completeNumber)) {
                     return 'Please enter a valid phone number';
                   }
                   return null;
                 },
               )),
-          Padding(padding: const EdgeInsets.all(8), child: GenderSelector())
+          const Padding(
+            padding: EdgeInsets.all(8),
+            child: GenderSelector(),
+          )
         ],
-      )),
+      ),
     );
   }
 

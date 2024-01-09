@@ -3,23 +3,18 @@ import 'package:get/get.dart';
 import 'package:mobile_dev_project/features/authentication/components/form_input_field.dart';
 import 'package:mobile_dev_project/features/authentication/controllers/sign_up_controller.dart';
 
-class SignUpForm extends StatefulWidget {
+class SignUpForm extends StatelessWidget {
   static final signupFormKey = GlobalKey<FormState>();
-  SignUpForm({super.key});
+  const SignUpForm({super.key});
 
-  @override
-  State<SignUpForm> createState() => _SIgnUpFormState();
-}
-
-class _SIgnUpFormState extends State<SignUpForm> {
-  SignUpController signUpController = Get.put<SignUpController>(SignUpController());
+  static SignUpController signUpController =
+      Get.put<SignUpController>(SignUpController());
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: SignUpForm.signupFormKey,
-      child: Container(
-          child: Column(
+      key: signupFormKey,
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
@@ -27,7 +22,7 @@ class _SIgnUpFormState extends State<SignUpForm> {
             child: FormInputField(
               title: "Username",
               controller: signUpController.username,
-              icon: Icon(Icons.person),
+              icon: const Icon(Icons.person),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter a username';
@@ -76,8 +71,7 @@ class _SIgnUpFormState extends State<SignUpForm> {
             ),
           ),
         ],
-      )),
+      ),
     );
-    ;
   }
 }
