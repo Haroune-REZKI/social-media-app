@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_dev_project/features/authentication/guards/login_or_home.dart';
 import 'package:mobile_dev_project/api/firebase_api.dart';
 import 'package:mobile_dev_project/features/authentication/views/email_sent_page.dart';
 import 'package:mobile_dev_project/features/authentication/views/forgot_password_page.dart';
@@ -9,7 +10,6 @@ import 'package:mobile_dev_project/features/authentication/views/reset_password_
 import 'package:mobile_dev_project/features/authentication/views/sign_up_page.dart';
 import 'package:mobile_dev_project/features/authentication/views/signin_page.dart';
 import 'package:mobile_dev_project/features/authentication/views/welcome_page.dart';
-import 'package:mobile_dev_project/features/categories/views/categories_feed.dart';
 import 'package:mobile_dev_project/features/feed/views/home_page.dart';
 import 'package:mobile_dev_project/features/posts/views/add_post.dart';
 import 'package:mobile_dev_project/features/profile/views/profile.dart';
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         // to be filled
-        "/": (context) => const WelcomePage(),
+        "/": (context) => AuthPageSwitcher(),
         '/settings': (context) => const Settings(),
         '/login_page': (context) => const SignIn(),
         '/sign_up_page': (context) => const SignUp(),

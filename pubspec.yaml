@@ -48,8 +48,9 @@ dependencies:
   dio: ^5.4.0
   firebase_core: ^2.24.2
   firebase_messaging: ^14.7.9
-  flutter_local_notifications: ^16.3.0
-  google_sign_in: ^6.2.1
+  flutter_local_notifications: ^16.2.0
+  gson: ^0.1.6-dev
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:

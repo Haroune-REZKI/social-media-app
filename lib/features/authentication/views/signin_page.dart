@@ -3,7 +3,6 @@ import 'package:mobile_dev_project/config/colors.config.dart';
 import 'package:mobile_dev_project/features/authentication/components/do_not_have_an_account.dart';
 import 'package:mobile_dev_project/features/authentication/components/forgot_password.dart';
 import 'package:mobile_dev_project/features/authentication/components/form_submit_button.dart';
-import 'package:mobile_dev_project/features/authentication/components/login_button.dart';
 import 'package:mobile_dev_project/features/authentication/components/sign_in_form.dart';
 import 'package:mobile_dev_project/features/authentication/components/customized_text.dart';
 import 'package:get/get.dart';
@@ -39,7 +38,7 @@ class _SignInState extends State<SignIn> {
                     textMain: "Welcome Back",
                     textSecond: "Enter your credential to login",
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   SignInForm(),
@@ -54,12 +53,19 @@ class _SignInState extends State<SignIn> {
                     textColor: AppColors.white,
                     onTap: () {
                       if (SignInForm.signinFormKey.currentState!.validate()) {
-                        Get.toNamed('/feed');
+                        // Get.toNamed('/feed');
+
+                        print(
+                            "USERNAME: ${SignInForm.signInController.username.value.text}");
+                        print(
+                            "PASSWORD: ${SignInForm.signInController.password.value.text}");
+
+                        SignInForm.signInController.doLogin(context);
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
-                              content:
-                                  Text('Please fix the errors in the form')),
+                            content: Text('Please fix the errors in the form'),
+                          ),
                         );
                       }
                     },

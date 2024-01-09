@@ -8,6 +8,7 @@ class User {
   String password;
   String? phoneNumber;
   String? gender;
+  String? token;
 
   User({
     required this.id,
@@ -19,5 +20,6 @@ class User {
     required this.password,
     required this.phoneNumber,
     required this.gender,
+    this.token,
   });
 }
