@@ -6,6 +6,7 @@ import 'package:mobile_dev_project/features/authentication/components/login_butt
 import 'package:mobile_dev_project/features/authentication/components/customized_text.dart';
 import 'package:mobile_dev_project/features/authentication/components/sign_up_form.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -17,6 +18,15 @@ class SignUp extends StatefulWidget {
 class _PersonalInfoPageState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
+      final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+
+  Future<void> _handleSignIn() async {
+    try {
+      await _googleSignIn.signIn();
+    } catch (error) {
+      print('Error signing in with Google: $error');
+    }
+  }
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
         appBar: AppBar(

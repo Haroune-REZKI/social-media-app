@@ -6,7 +6,7 @@ import 'package:mobile_dev_project/features/profile/components/fav_single_catego
 
 // ignore: must_be_immutable
 class FavCategoryListing extends StatefulWidget {
-  final categoryListing = categoriesExample;
+  final categoryListing = categoriesNewsExample;
 
   FavCategoryListing({super.key});
 
