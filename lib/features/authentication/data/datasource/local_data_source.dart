@@ -19,7 +19,7 @@ class UserLocalDataSource {
     userPrefs.setString("token", token);
   }
 
-  Future<UserModel?> retrieveUserFromLocalCache() async {
+  static Future<UserModel?> retrieveUserFromLocalCache() async {
     SharedPreferences userPrefs = await SharedPreferences.getInstance();
     String? userJson = userPrefs.getString('user_data');
     if (userJson != null) {
