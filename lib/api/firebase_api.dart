@@ -10,14 +10,12 @@ class FirebaseApi {
     // request permission from user(will prompt user)
     await _firebaseMessaging.requestPermission();
 
-    String value = 'hello';
-
     //fetch the FCM token for this device (each device will a special token)
-    final FCMToken = await _firebaseMessaging.getToken(); // when i did not use await, fcmtoken was empty
+    final FCMToken = await _firebaseMessaging
+        .getToken(); // when i did not use await, fcmtoken was empty
 
     // print the token for debugging
     print("Token: $FCMToken");
-
   }
 
   // function to handle received notifications
