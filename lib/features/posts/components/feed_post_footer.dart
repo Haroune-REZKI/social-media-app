@@ -3,13 +3,13 @@ import 'package:mobile_dev_project/config/colors.config.dart';
 
 // ignore: must_be_immutable
 class PostFooter extends StatefulWidget {
-  int likes;
-  bool isLiked;
-  int comments;
-  bool hasBookmarked;
-  String timestamps;
+  int? likes;
+  bool? isLiked;
+  int? comments;
+  bool? hasBookmarked;
+  String? timestamps;
 
-  bool isSinglePostView;
+  bool? isSinglePostView;
 
   PostFooter({
     super.key,
@@ -37,12 +37,12 @@ class _PostFooterState extends State<PostFooter> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                if (widget.isLiked)
+                if (widget.isLiked!)
                   GestureDetector(
                     onTap: () {
                       setState(() {
                         widget.isLiked = false;
-                        widget.likes = widget.likes - 1;
+                        widget.likes = (widget.likes! - 1);
                       });
                     },
                     child: const Icon(
@@ -51,12 +51,12 @@ class _PostFooterState extends State<PostFooter> {
                       size: 30,
                     ),
                   ),
-                if (!widget.isLiked)
+                if (!widget.isLiked!)
                   GestureDetector(
                     onTap: () {
                       setState(() {
                         widget.isLiked = true;
-                        widget.likes = widget.likes + 1;
+                        widget.likes = (widget.likes! + 1);
                       });
                     },
                     child: const Icon(
@@ -74,7 +74,7 @@ class _PostFooterState extends State<PostFooter> {
               width: 10,
             ),
             Visibility(
-              visible: !widget.isSinglePostView,
+              visible: !widget.isSinglePostView!,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -92,7 +92,7 @@ class _PostFooterState extends State<PostFooter> {
                 ],
               ),
             ),
-            if (widget.hasBookmarked)
+            if (widget.hasBookmarked!)
               GestureDetector(
                 onTap: () {
                   setState(() {
@@ -105,7 +105,7 @@ class _PostFooterState extends State<PostFooter> {
                   size: 30,
                 ),
               ),
-            if (!widget.hasBookmarked)
+            if (!widget.hasBookmarked!)
               GestureDetector(
                 onTap: () {
                   setState(() {
@@ -121,7 +121,7 @@ class _PostFooterState extends State<PostFooter> {
               width: 10,
             ),
             Visibility(
-              visible: widget.isSinglePostView,
+              visible: widget.isSinglePostView!,
               child: const Icon(
                 Icons.report_gmailerrorred_rounded,
                 size: 30,
@@ -130,9 +130,9 @@ class _PostFooterState extends State<PostFooter> {
           ],
         ),
         Text(
-          widget.isSinglePostView
+          widget.isSinglePostView!
               ? "Posted Since ${widget.timestamps}"
-              : widget.timestamps,
+              : widget.timestamps!,
           style: const TextStyle(
             fontSize: 13,
             fontWeight: FontWeight.w700,

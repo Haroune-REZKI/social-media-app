@@ -9,7 +9,7 @@ import 'package:mobile_dev_project/utils/components/bottom_navigation_bar.dart';
 import 'package:get/get.dart';
 
 class SinglePost extends StatefulWidget {
-  final int postId;
+  final int? postId;
 
   const SinglePost({super.key, required this.postId});
 

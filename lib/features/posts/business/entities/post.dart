@@ -3,27 +3,27 @@ import 'package:mobile_dev_project/features/comments/business/entities/comment.d
 import 'package:mobile_dev_project/features/posts/business/entities/like.dart';
 
 class Post {
-  int id;
-  int userId;
+  int? id;
+  int? userId;
   int categoryId;
-  String createdAt;
+  String? createdAt;
   String content;
-  List<Comment> comments;
-  User author;
-  List<Like> likes;
-  int numberOfLikes;
-  bool hasLiked;
+  List<Comment>? comments;
+  User? author;
+  List<Like>? likes;
+  int? numberOfLikes;
+  bool? hasLiked;
 
   Post({
-    required this.id,
-    required this.userId,
+    this.id,
+    this.userId,
     required this.categoryId,
-    required this.createdAt,
-    required this.author,
+    this.createdAt,
+    this.author,
     required this.content,
-    required this.likes,
-    required this.hasLiked,
-    required this.numberOfLikes,
-    required this.comments,
+    this.likes,
+    this.hasLiked,
+    this.numberOfLikes,
+    this.comments,
   });
 }

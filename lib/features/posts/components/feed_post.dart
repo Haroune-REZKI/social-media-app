@@ -41,8 +41,8 @@ class _FeedPostState extends State<FeedPost> {
       child: Column(
         children: [
           PostHeader(
-            fullName: widget.postContent.author.fullname,
-            userName: widget.postContent.author.username,
+            fullName: widget.postContent.author?.fullname,
+            userName: widget.postContent.author?.username,
             avatar:
                 "https://4.bp.blogspot.com/-Jx21kNqFSTU/UXemtqPhZCI/AAAAAAAAh74/BMGSzpU6F48/s1600/funny-cat-pictures-047-001.jpg",
           ),
@@ -62,7 +62,7 @@ class _FeedPostState extends State<FeedPost> {
           PostFooter(
             likes: widget.postContent.numberOfLikes,
             isLiked: widget.postContent.hasLiked,
-            comments: widget.postContent.comments.length,
+            comments: widget.postContent.comments?.length,
             hasBookmarked: false,
             timestamps: widget.postContent.createdAt,
             isSinglePostView: widget.isSinglePostView,
