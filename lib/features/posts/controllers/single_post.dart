@@ -12,9 +12,13 @@ class SinglePostController extends GetxController
   @override
   void onInit() {
     super.onInit();
+    print("controller initialized \n\n\n\n\n");
     fetchPosts();
   }
-  SinglePostController({required postId});
+  SinglePostController({required postId_}){
+    postId.value = postId_;
+  }
+  var postId = 0.obs;
 
   fetchPosts() async {
     change(null, status: RxStatus.loading());
@@ -27,15 +31,17 @@ class SinglePostController extends GetxController
       ),
     );
 
-    final failureOrPost = await GetPost(repository).call();
+    final failureOrPost = await GetPost(repository).call(postId.value);
 
     failureOrPost.fold(
       (failure) => {
+        print("failure $failure"),
         // hasFailed.value = true;
         change(null,
             status: RxStatus.error(failure.toString()))
       },
       (post) => {
+        print("post is retrieved ${post.content}"),
         // posts.value = post
         change(post, status: RxStatus.success())
       },

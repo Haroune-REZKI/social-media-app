@@ -4,7 +4,7 @@ import 'package:mobile_dev_project/core/error/exceptions.dart';
 import 'package:mobile_dev_project/features/posts/data/models/single_post_model.dart';
 
 abstract class SinglePostRemoteDataSource {
-  Future<SinglePostModel> getSinglePost([int? postId]);
+  Future<SinglePostModel> getSinglePost(int postId);
 }
 
 class SinglePostRemoteDataSourceImpl implements SinglePostRemoteDataSource {
@@ -13,7 +13,7 @@ class SinglePostRemoteDataSourceImpl implements SinglePostRemoteDataSource {
   SinglePostRemoteDataSourceImpl({required this.dio});
 
   @override
-  Future<SinglePostModel> getSinglePost([int? postId]) async {
+  Future<SinglePostModel> getSinglePost(int postId) async {
     dynamic response;
 
     response = await dio.get(

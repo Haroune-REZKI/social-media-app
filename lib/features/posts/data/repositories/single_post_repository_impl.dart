@@ -17,12 +17,14 @@ class SinglePostRepositoryImpl implements SinglePostRepository {
   });
 
   @override
-  Future<Either<Failure, SinglePostModel>> getSinglePost([int? postId]) async {
+  Future<Either<Failure, SinglePostModel>> getSinglePost(int postId) async {
     bool isConnected = await networkInfo.isConnected!;
-
+  print("single post repo impl is starting");
     if (isConnected) {
       try {
+
         final currentPost = await remoteDataSource.getSinglePost(postId);
+        print("single post repo impl is done");
 
         return Right(currentPost);
       } on ServerException {

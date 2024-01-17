@@ -8,7 +8,7 @@ class GetPost {
 
   GetPost(this.repository);
 
-  Future<Either<Failure, Post>> call([int? postId]) async {
+  Future<Either<Failure, Post>> call(int postId) async {
     return await repository.getSinglePost(postId);
   }
 }

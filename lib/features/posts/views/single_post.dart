@@ -16,7 +16,7 @@ class SinglePost extends StatelessWidget {
   // late final ListOfCommentsController listOfCommentsController;
 
   SinglePost({super.key, required this.postId}){
-    singlePostController = Get.put(SinglePostController(postId: postId));
+    singlePostController = Get.put(SinglePostController(postId_: postId));
   }
 
   late final SinglePostController singlePostController;
@@ -44,26 +44,26 @@ class SinglePost extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
       ),
-      body: singlePostController.obx((state) => ListView.builder(
-            itemBuilder: (context, index) {
+      body: singlePostController.obx((state) => ListView(
+            children: [
               FeedPost(
                 postContent: state!,
                 isSinglePostView: true,
-              );
+              ),
               const SizedBox(
                 height: 10,
-              );
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Text(
                   "Browse Comments",
                   style: AppTextStyles.subtitle,
                 ),
-              );
+              ),
               const SizedBox(
                 height: 10,
-              );
-              for (var comment in state!.comments)
+              ),
+              for (var comment in state.comments)
                 Padding(
                   padding: const EdgeInsets.only(
                     left: 30.0,
@@ -71,8 +71,8 @@ class SinglePost extends StatelessWidget {
                     bottom: 20.0,
                   ),
                   child: SingleComment(commentId: comment.id),
-                );
-            },
+                ),
+            ],
           )),
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
