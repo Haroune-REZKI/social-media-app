@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
 
-class PostSubmitButton extends StatefulWidget {
+class PostSubmitButton extends StatelessWidget {
   String title;
   Color color;
   Color textColor;
@@ -12,20 +12,13 @@ class PostSubmitButton extends StatefulWidget {
       required this.onTap});
 
   @override
-  State<PostSubmitButton> createState() => _PostSubmitButtonState();
-}
-
-class _PostSubmitButtonState extends State<PostSubmitButton> {
-  @override
   Widget build(BuildContext context) {
     return Container(
       width: 200,
       child: ElevatedButton(
-        onPressed: () {
-          widget.onTap;
-        },
+        onPressed: onTap,
         style: ElevatedButton.styleFrom(
-          backgroundColor: widget.color,
+          backgroundColor: color,
           padding: const EdgeInsets.symmetric(vertical: 12),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
@@ -34,9 +27,9 @@ class _PostSubmitButtonState extends State<PostSubmitButton> {
           elevation: 0,
         ),
         child: Text(
-          widget.title,
+          title,
           style: TextStyle(
-              fontSize: 18, fontWeight: FontWeight.bold, color: widget.textColor),
+              fontSize: 18, fontWeight: FontWeight.bold, color: textColor),
         ),
       ),
     );;
