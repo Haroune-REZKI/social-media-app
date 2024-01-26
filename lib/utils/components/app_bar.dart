@@ -7,7 +7,8 @@ class CustomAppBar extends AppBar {
   final BuildContext parentContext;
   CustomAppBar({super.key, required this.parentContext})
       : super(
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.white,
+          surfaceTintColor: Colors.white,
           elevation: 0.0,
           automaticallyImplyLeading: true,
           centerTitle: true,
@@ -22,7 +23,8 @@ class CustomAppBar extends AppBar {
               padding: const EdgeInsets.only(top: 10, left: 20),
               child: const CircleAvatar(
                 backgroundImage: NetworkImage(
-                    "https://4.bp.blogspot.com/-Jx21kNqFSTU/UXemtqPhZCI/AAAAAAAAh74/BMGSzpU6F48/s1600/funny-cat-pictures-047-001.jpg"),
+                  "https://4.bp.blogspot.com/-Jx21kNqFSTU/UXemtqPhZCI/AAAAAAAAh74/BMGSzpU6F48/s1600/funny-cat-pictures-047-001.jpg",
+                ),
                 backgroundColor: Colors.red,
               ),
             ),
@@ -31,7 +33,7 @@ class CustomAppBar extends AppBar {
             Padding(
               padding: const EdgeInsets.only(top: 10, right: 20),
               child: Material(
-                color: Colors.white,
+                color: AppColors.white,
                 child: IconButton(
                   icon: const Icon(
                     Icons.settings,

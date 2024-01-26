@@ -17,15 +17,24 @@ class UserLocalDataSource {
 
     userPrefs.setString("username", username);
     userPrefs.setString("token", token);
-
   }
 
-  Future<UserModel?> retrieveUserFromLocalCache() async {
+  static Future<UserModel?> retrieveUserFromLocalCache() async {
     SharedPreferences userPrefs = await SharedPreferences.getInstance();
     String? userJson = userPrefs.getString('user_data');
     if (userJson != null) {
       Map<String, dynamic> userMap = jsonDecode(userJson);
       return UserModel.fromJson(userMap);
+    }
+
+    return null;
+  }
+
+  static Future<String?> retrieveTokenFromLocalCache() async {
+    SharedPreferences userPrefs = await SharedPreferences.getInstance();
+    String? token = userPrefs.getString('token');
+    if (token != null) {
+      return token;
     }
 
     return null;

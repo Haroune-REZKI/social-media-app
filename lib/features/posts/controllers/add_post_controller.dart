@@ -21,12 +21,14 @@ class AddPostController extends GetxController {
       ),
     );
 
-    print("Sending post request with content: ${postContentController.text} and categoryId: 2");
+    print(
+        "Sending post request with content: ${postContentController.text} and categoryId: 2");
 
     AddPostRepositoryImpl repository = AddPostRepositoryImpl(
-      remoteDataSource: AddPostRemoteDataSourceImpl(dio: Dio()), networkInfo: NetworkInfoImpl(
+      remoteDataSource: PostRemoteDataSourceImpl(dio: Dio()),
+      networkInfo: NetworkInfoImpl(
         InternetConnectionChecker(),
-    ),
+      ),
     );
 
     final failureOrPost = await AddPost(repository).call(
@@ -45,7 +47,7 @@ class AddPostController extends GetxController {
       (post) => {
         // how to handle it if successful
         Navigator.pop(context),
-        Get.toNamed("/feed"), 
+        Get.toNamed("/feed"),
       },
     );
   }

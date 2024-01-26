@@ -60,9 +60,10 @@ class _FeedPostState extends State<FeedPost> {
             height: 10,
           ),
           PostFooter(
+            postId: widget.postContent.id,
             likes: widget.postContent.numberOfLikes,
             isLiked: widget.postContent.hasLiked,
-            comments: widget.postContent.comments?.length,
+            comments: widget.postContent.comments.length,
             hasBookmarked: false,
             timestamps: widget.postContent.createdAt,
             isSinglePostView: widget.isSinglePostView,

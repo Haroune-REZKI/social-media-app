@@ -1,31 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
+import 'package:mobile_dev_project/features/posts/controllers/bookmark_unbookmark.dart';
+import 'package:mobile_dev_project/features/posts/controllers/like_unlike_controller.dart';
 
 // ignore: must_be_immutable
-class PostFooter extends StatefulWidget {
-  int? likes;
-  bool? isLiked;
-  int? comments;
-  bool? hasBookmarked;
-  String? timestamps;
+class PostFooter extends StatelessWidget {
+  int postId;
+  int likes;
+  bool isLiked;
+  int comments;
+  bool hasBookmarked;
+  String timestamps;
 
-  bool? isSinglePostView;
+  bool isSinglePostView;
+
+  late final LikeUnlikeController likeUnlikeController;
+  late final BookmarkUnbookmarkController bookmarkUnbookmarkController;
 
   PostFooter({
     super.key,
+    required this.postId,
     required this.likes,
     required this.isLiked,
     required this.comments,
     required this.hasBookmarked,
     required this.timestamps,
     required this.isSinglePostView,
-  });
+  }) {
+    likeUnlikeController = Get.put(
+      LikeUnlikeController(
+        postId_: postId,
+        liked_: isLiked,
+        likes_: likes,
+      ),
+      tag: "$postId",
+    );
 
-  @override
-  State<PostFooter> createState() => _PostFooterState();
-}
+    bookmarkUnbookmarkController = Get.put(
+      BookmarkUnbookmarkController(
+        postId_: postId,
+        bookmarked_: hasBookmarked,
+      ),
+      tag: "$postId",
+    );
+  }
 
-class _PostFooterState extends State<PostFooter> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -37,44 +57,38 @@ class _PostFooterState extends State<PostFooter> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                if (widget.isLiked!)
-                  GestureDetector(
+                Obx(
+                  () => GestureDetector(
                     onTap: () {
-                      setState(() {
-                        widget.isLiked = false;
-                        widget.likes = (widget.likes! - 1);
-                      });
+                      if (!likeUnlikeController.liked.value) {
+                        likeUnlikeController.doLike();
+                      } else {
+                        likeUnlikeController.doUnLike();
+                      }
                     },
-                    child: const Icon(
-                      Icons.favorite,
-                      color: Colors.red,
-                      size: 30,
-                    ),
+                    child: likeUnlikeController.liked.value
+                        ? const Icon(
+                            Icons.favorite,
+                            color: Colors.red,
+                            size: 30,
+                          )
+                        : const Icon(
+                            Icons.favorite_border,
+                            size: 30,
+                          ),
                   ),
-                if (!widget.isLiked!)
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        widget.isLiked = true;
-                        widget.likes = (widget.likes! + 1);
-                      });
-                    },
-                    child: const Icon(
-                      Icons.favorite_border,
-                      size: 30,
-                    ),
-                  ),
+                ),
                 const SizedBox(
                   width: 2,
                 ),
-                Text(widget.likes.toString())
+                Obx(() => Text(likeUnlikeController.likes.value.toString()))
               ],
             ),
             const SizedBox(
               width: 10,
             ),
             Visibility(
-              visible: !widget.isSinglePostView!,
+              visible: !isSinglePostView,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -85,43 +99,39 @@ class _PostFooterState extends State<PostFooter> {
                   const SizedBox(
                     width: 2,
                   ),
-                  Text(widget.comments.toString()),
+                  Text(comments.toString()),
                   const SizedBox(
                     width: 10,
                   ),
                 ],
               ),
             ),
-            if (widget.hasBookmarked!)
-              GestureDetector(
+            Obx(
+              () => GestureDetector(
                 onTap: () {
-                  setState(() {
-                    widget.hasBookmarked = false;
-                  });
+                  if (!bookmarkUnbookmarkController.bookmarked.value) {
+                    bookmarkUnbookmarkController.doBookmark();
+                  } else {
+                    bookmarkUnbookmarkController.doUnBookmark();
+                  }
                 },
-                child: const Icon(
-                  Icons.bookmark,
-                  color: AppColors.main,
-                  size: 30,
-                ),
+                child: bookmarkUnbookmarkController.bookmarked.value
+                    ? const Icon(
+                        Icons.bookmark,
+                        color: AppColors.main,
+                        size: 30,
+                      )
+                    : const Icon(
+                        Icons.bookmark_outline,
+                        size: 30,
+                      ),
               ),
-            if (!widget.hasBookmarked!)
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    widget.hasBookmarked = true;
-                  });
-                },
-                child: const Icon(
-                  Icons.bookmark_outline,
-                  size: 30,
-                ),
-              ),
+            ),
             const SizedBox(
               width: 10,
             ),
             Visibility(
-              visible: widget.isSinglePostView!,
+              visible: isSinglePostView,
               child: const Icon(
                 Icons.report_gmailerrorred_rounded,
                 size: 30,
@@ -130,9 +140,7 @@ class _PostFooterState extends State<PostFooter> {
           ],
         ),
         Text(
-          widget.isSinglePostView!
-              ? "Posted Since ${widget.timestamps}"
-              : widget.timestamps!,
+          isSinglePostView ? "Posted Since $timestamps" : timestamps,
           style: const TextStyle(
             fontSize: 13,
             fontWeight: FontWeight.w700,

@@ -1,6 +1,7 @@
 import "package:dio/dio.dart";
 import 'package:mobile_dev_project/core/constant/constant.dart';
 import 'package:mobile_dev_project/core/error/exceptions.dart';
+import 'package:mobile_dev_project/features/authentication/data/datasource/local_data_source.dart';
 import 'package:mobile_dev_project/features/feed/data/models/list_of_posts.dart';
 
 abstract class ListOfPostsRemoteDataSource {
@@ -16,12 +17,14 @@ class ListOfPostsRemoteDataSourceImpl implements ListOfPostsRemoteDataSource {
   Future<ListOfPostsModel> getListOfPosts([int? categoryId]) async {
     dynamic response;
 
+    String? userToken = await UserLocalDataSource.retrieveTokenFromLocalCache();
+
     if (categoryId == null) {
       response = await dio.get(
         "$API_URL/posts",
         options: Options(
           headers: {
-            "Authorization": "Bearer $USER_TOKEN",
+            "Authorization": "Bearer $userToken",
           },
         ),
       );
@@ -30,7 +33,7 @@ class ListOfPostsRemoteDataSourceImpl implements ListOfPostsRemoteDataSource {
         "$API_URL/posts",
         options: Options(
           headers: {
-            "Authorization": "Bearer $USER_TOKEN",
+            "Authorization": "Bearer $userToken",
           },
         ),
         queryParameters: {
