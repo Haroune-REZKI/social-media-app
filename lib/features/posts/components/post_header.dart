@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
 
 class PostHeader extends StatelessWidget {
-  final String fullName;
-  final String userName;
-  final String avatar;
+  final String? fullName;
+  final String? userName;
+  final String? avatar;
 
   const PostHeader(
       {super.key,
@@ -27,7 +27,7 @@ class PostHeader extends StatelessWidget {
               backgroundColor: Colors.white,
               child: CircleAvatar(
                 radius: 30,
-                backgroundImage: NetworkImage(avatar),
+                backgroundImage: NetworkImage(avatar!),
               ),
             ),
           ),
@@ -39,7 +39,7 @@ class PostHeader extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              fullName,
+              fullName!,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 17,
