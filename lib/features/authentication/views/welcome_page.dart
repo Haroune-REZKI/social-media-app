@@ -15,39 +15,43 @@ class WelcomePage extends StatefulWidget {
 class WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Center(
-        child: Container(
-          margin: const EdgeInsets.fromLTRB(40, 60, 40, 60),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Logo(),
-              const Slogan(),
-              Column(
-                children: [
-                  SubmitButton(
-                    title: "Login",
-                    color: AppColors.white,
-                    textColor: AppColors.dark,
-                    onTap: () {
-                      Get.toNamed('/login_page');
-                    },
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  SubmitButton(
-                    title: "Sign Up",
-                    color: AppColors.main,
-                    textColor: AppColors.white,
-                    onTap: () {
-                      Get.toNamed('/sign_up_page');
-                    },
-                  ),
-                ],
-              )
-            ],
+        child: SingleChildScrollView(
+          child: Container(
+            height: screenHeight * 0.85,
+            margin: const EdgeInsets.fromLTRB(40, 60, 40, 60),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Logo(),
+                const Slogan(),
+                Column(
+                  children: [
+                    SubmitButton(
+                      title: "Login",
+                      color: AppColors.white,
+                      textColor: AppColors.dark,
+                      onTap: () {
+                        Get.toNamed('/login_page');
+                      },
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    SubmitButton(
+                      title: "Sign Up",
+                      color: AppColors.main,
+                      textColor: AppColors.white,
+                      onTap: () {
+                        Get.toNamed('/sign_up_page');
+                      },
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),

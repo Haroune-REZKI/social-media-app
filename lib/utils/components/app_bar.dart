@@ -5,14 +5,15 @@ import 'package:mobile_dev_project/config/font.config.dart';
 
 class CustomAppBar extends AppBar {
   final BuildContext parentContext;
-  CustomAppBar({super.key, required this.parentContext})
+  final pageTitle;
+  CustomAppBar({super.key, required this.parentContext, required this.pageTitle})
       : super(
           backgroundColor: AppColors.white,
           surfaceTintColor: Colors.white,
           elevation: 0.0,
           automaticallyImplyLeading: true,
           centerTitle: true,
-          title: Text("AppName", style: AppTextStyles.title),
+          title: Text(pageTitle, style: AppTextStyles.title),
           leading: GestureDetector(
             onTap: () {
               Get.toNamed('/profile');

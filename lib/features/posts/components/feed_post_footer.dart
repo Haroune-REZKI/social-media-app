@@ -140,7 +140,7 @@ class PostFooter extends StatelessWidget {
           ],
         ),
         Text(
-          isSinglePostView ? "Posted Since $timestamps" : timestamps,
+          isSinglePostView ? "Posted $timestamps" : timestamps,
           style: const TextStyle(
             fontSize: 13,
             fontWeight: FontWeight.w700,

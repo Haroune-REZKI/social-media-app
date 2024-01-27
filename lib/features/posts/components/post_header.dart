@@ -35,27 +35,30 @@ class PostHeader extends StatelessWidget {
         const SizedBox(
           width: 20,
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              fullName!,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 17,
-              ),
-            ),
-            const SizedBox(
-              height: 2,
-            ),
-            Text(
-              "@$userName",
-              style: const TextStyle(
+        Flexible(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                fullName!,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                  color: AppColors.light),
-            )
-          ],
+                  fontSize: 16,
+                ),
+              ),
+              const SizedBox(
+                height: 2,
+              ),
+              Text(
+                "@$userName",
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                    color: AppColors.light),
+              )
+            ],
+          ),
         )
       ],
     );

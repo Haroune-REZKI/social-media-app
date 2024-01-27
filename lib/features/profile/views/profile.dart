@@ -33,7 +33,7 @@ class Profile extends StatelessWidget {
           SingleChildScrollView(child: ProfileDetails(user: state!))
       ),
       bottomNavigationBar: CustomBottomNavigationBar(
-        selectedIndex: 0,
+        selectedIndex: 2,
       ),
     );
   }

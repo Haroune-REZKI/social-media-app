@@ -32,7 +32,7 @@ class _AddPostState extends State<AddPost> {
           },
           child: const Icon(Icons.arrow_back),
         ),
-        title: const Text("AppName"),
+        title: const Text("Add Post"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),

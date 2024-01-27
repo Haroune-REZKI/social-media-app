@@ -13,7 +13,7 @@ class FeedPostsListing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
       child: postsController.obx(
         (state) => ListView.builder(
           physics: const NeverScrollableScrollPhysics(),

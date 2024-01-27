@@ -16,10 +16,13 @@ class PostContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          content,
-          style: AppTextStyles.text,
-          textAlign: TextAlign.left,
+        Container(
+          alignment: Alignment.topLeft,
+          child: Text(
+            content,
+            style: AppTextStyles.text,
+            textAlign: TextAlign.left,
+          ),
         ),
         const SizedBox(
           height: 15,
