@@ -17,11 +17,14 @@ class SinglePostController extends GetxController
   }
   SinglePostController({required postId_}){
     postId.value = postId_;
+    fetchPosts();
+    print(">>>>>>>>>>>>> controller: postID >>>>>> ${postId.value}");
   }
   var postId = 0.obs;
 
   fetchPosts() async {
     change(null, status: RxStatus.loading());
+    print(">>>>>>>>>>>> controller will invoke Repository Implementation");
     SinglePostRepositoryImpl repository = SinglePostRepositoryImpl(
       remoteDataSource: SinglePostRemoteDataSourceImpl(
         dio: Dio(),
@@ -30,8 +33,9 @@ class SinglePostController extends GetxController
         InternetConnectionChecker(),
       ),
     );
-
+    
     final failureOrPost = await GetPost(repository).call(postId.value);
+    print(">>>>>>>>>>>>> controller: result >>>>>> ${failureOrPost}");
 
     failureOrPost.fold(
       (failure) => {

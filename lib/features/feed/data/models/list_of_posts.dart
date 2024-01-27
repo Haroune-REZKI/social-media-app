@@ -17,6 +17,17 @@ class ListOfPostsModel extends ListOfPosts {
         convertedComments.add(Comment(
           content: comment["content"],
           id: comment["id"],
+          author: User(
+            id: element["author"]["id"],
+            fullname: element["author"]["fullname"],
+            username: element["author"]["username"],
+            email: element["author"]["email"],
+            bio: element["author"]["bio"],
+            createdAt: element["author"]["createdAt"],
+            password: element["author"]["password"],
+            phoneNumber: element["author"]["phoneNumber"],
+            gender: element["author"]["gender"],
+          ),
           userId: comment["userId"],
           postId: comment["postId"],
           createdAt: comment["createdAt"],

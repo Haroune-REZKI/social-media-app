@@ -4,7 +4,7 @@ import 'package:mobile_dev_project/features/posts/business/entities/post.dart';
 import 'package:mobile_dev_project/features/posts/business/repositories/single_post_repository.dart';
 
 class GetPost {
-  final SinglePostRepository repository;
+  SinglePostRepository repository;
 
   GetPost(this.repository);
 

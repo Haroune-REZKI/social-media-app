@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
 import 'package:mobile_dev_project/config/font.config.dart';
+import 'package:mobile_dev_project/features/comments/business/entities/comment.dart';
 import 'package:mobile_dev_project/features/comments/components/single_comment_footer.dart';
 import 'package:mobile_dev_project/features/comments/handlers/constants/main.dart';
 
 class SingleComment extends StatelessWidget {
-  final int commentId;
+  final Comment comment;
 
-  const SingleComment({super.key, required this.commentId});
+  const SingleComment({super.key, required this.comment});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class SingleComment extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
+                /* Container(
                   margin: const EdgeInsets.only(top: 10),
                   height: 70.0,
                   child: CircleAvatar(
@@ -39,7 +40,7 @@ class SingleComment extends StatelessWidget {
                       ),
                     ),
                   ),
-                )
+                ) */
               ],
             ),
             const SizedBox(
@@ -52,7 +53,7 @@ class SingleComment extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    commentsExample[commentId].fullname,
+                    comment.author.fullname,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 17,
@@ -63,7 +64,7 @@ class SingleComment extends StatelessWidget {
                     height: 2,
                   ),
                   Text(
-                    "@${commentsExample[commentId].username}",
+                    "@${comment.author.username}",
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
@@ -75,17 +76,17 @@ class SingleComment extends StatelessWidget {
                     height: 20,
                   ),
                   Text(
-                    commentsExample[commentId].content,
+                    comment.content,
                     style: AppTextStyles.text,
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  SingleCommentFooter(
-                    likes: commentsExample[commentId].likes,
+                  /* SingleCommentFooter(
+                    likes: comment.,
                     isLiked: commentsExample[commentId].isLiked,
                     hasBookmarked: commentsExample[commentId].hasBookmarked,
-                  ),
+                  ), */
                 ],
               ),
             )
@@ -97,7 +98,7 @@ class SingleComment extends StatelessWidget {
             right: 10,
           ),
           child: Text(
-            commentsExample[commentId].timestamps,
+            comment.createdAt,
             style: const TextStyle(
               fontSize: 13,
               fontWeight: FontWeight.w700,

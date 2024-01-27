@@ -23,7 +23,7 @@ class SinglePostRepositoryImpl implements SinglePostRepository {
     if (isConnected) {
       try {
 
-        final currentPost = await remoteDataSource.getSinglePost(postId);
+        var currentPost = await remoteDataSource.getSinglePost(postId);
         print("single post repo impl is done");
 
         return Right(currentPost);
