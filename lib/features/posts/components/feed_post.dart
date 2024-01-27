@@ -52,10 +52,9 @@ class _FeedPostState extends State<FeedPost> {
           GestureDetector(
             onTap: _handleNavigation,
             child: PostContent(
-              content: widget.postContent.content,
-              hasImage: false,
-              image: widget.postContent.picture
-            ),
+                content: widget.postContent.content,
+                hasImage: false,
+                image: widget.postContent.picture),
           ),
           const SizedBox(
             height: 10,
@@ -65,7 +64,7 @@ class _FeedPostState extends State<FeedPost> {
             likes: widget.postContent.numberOfLikes,
             isLiked: widget.postContent.hasLiked,
             comments: widget.postContent.comments.length,
-            hasBookmarked: false,
+            hasBookmarked: widget.postContent.hasBookmarked,
             timestamps: widget.postContent.createdAt,
             isSinglePostView: widget.isSinglePostView,
           )

@@ -9,18 +9,18 @@ class AddingCommentSection extends StatelessWidget {
   final int commentId;
   final int postId;
 
-  // final ListOfCommentsController listOfCommentsController;
+  final ListOfCommentsController listOfCommentsController;
   late final AddCommentController addCommentController;
 
   AddingCommentSection({
     super.key,
     required this.commentId,
     required this.postId,
-    // required this.listOfCommentsController,
+    required this.listOfCommentsController,
   }) {
     addCommentController = Get.put(AddCommentController(
       postId: postId,
-      // listOfCommentsController: listOfCommentsController,
+      listOfCommentsController: listOfCommentsController,
     ));
   }
 

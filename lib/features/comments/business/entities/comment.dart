@@ -14,6 +14,6 @@ class Comment {
     required this.postId,
     required this.createdAt,
     required this.content,
-    required this.author
+    required this.author,
   });
 }

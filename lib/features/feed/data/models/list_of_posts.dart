@@ -61,6 +61,7 @@ class ListOfPostsModel extends ListOfPosts {
         content: element["content"],
         likes: convertedLikes,
         hasLiked: element["hasLiked"],
+        hasBookmarked: element["hasBookmarked"],
         numberOfLikes: element["numberOfLikes"],
         comments: convertedComments,
         picture: element["picture"]
