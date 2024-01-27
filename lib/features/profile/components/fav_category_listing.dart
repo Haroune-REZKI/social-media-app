@@ -22,23 +22,7 @@ class _FavCategoryListingState extends State<FavCategoryListing> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              padding: const EdgeInsets.all(12),
-              itemCount: 5,
-              itemBuilder: (context, index) {
-                if (index < widget.categoryListing.length) {
-                  return FavSingleCategory(
-                    categoryData: widget.categoryListing[index],
-                  );
-                }
-                return null;
-              },
-            ),
-          ),
+            Center(child: Text("There are no saved categories"))
         ],
       ),
     );

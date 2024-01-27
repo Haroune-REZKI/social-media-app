@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_dev_project/features/feed/components/feed_categories_listing.dart';
 import 'package:mobile_dev_project/features/feed/components/feed_posts_listing.dart';
 import 'package:mobile_dev_project/features/profile/components/fav_category_listing.dart';
+import 'package:mobile_dev_project/features/profile/components/fav_posts_listing.dart';
 
 class Pages extends StatefulWidget {
   const Pages({super.key});
@@ -50,8 +51,9 @@ class _PagesState extends State<Pages> {
             ),
           ],
         ),
+        SizedBox(height: 20,),
         Visibility(
-          child: FeedPostsListing(), //placeholder only
+          child: FavPostsListing(), //placeholder only
           visible: isPosts,
         ),
         Visibility(
