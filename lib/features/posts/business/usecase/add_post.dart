@@ -7,7 +7,7 @@ class AddPost {
   final AddPostRepository repository;
   AddPost(this.repository);
 
-  Future<Either<Failure, bool>> call(AddPostOptions options) async {
+  Future<Either<Failure, int>> call(AddPostOptions options) async {
     return await repository.addPost(options);
   }
 }

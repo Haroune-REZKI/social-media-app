@@ -4,8 +4,13 @@ import 'package:mobile_dev_project/config/font.config.dart';
 class PostContent extends StatelessWidget {
   final String content;
   final bool hasImage;
+  final String? image;
 
-  const PostContent({super.key, required this.content, required this.hasImage});
+  const PostContent(
+      {super.key,
+      required this.content,
+      required this.hasImage,
+      required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -14,18 +19,19 @@ class PostContent extends StatelessWidget {
         Text(
           content,
           style: AppTextStyles.text,
+          textAlign: TextAlign.left,
         ),
         const SizedBox(
           height: 15,
         ),
-        if (hasImage)
+        if (image != null)
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Container(
               height: 200,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/mahelma6.jpg"),
+                  image: NetworkImage(image?.trim() ?? ""),
                   fit: BoxFit.cover,
                 ),
               ),
