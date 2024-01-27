@@ -10,5 +10,5 @@ class AddPostOptions {
 }
 
 abstract class AddPostRepository {
-  Future<Either<Failure, bool>> addPost(AddPostOptions options);
+  Future<Either<Failure, int>> addPost(AddPostOptions options);
 }
