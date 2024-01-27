@@ -12,18 +12,17 @@ import 'package:mobile_dev_project/features/comments/data/datasource/remote_data
 import 'package:mobile_dev_project/features/comments/data/repositories/add_comment.dart';
 import 'package:mobile_dev_project/utils/components/custom_circular_progress_indicator.dart';
 import 'package:mobile_dev_project/features/authentication/controllers/handlers.dart';
-import 'package:mobile_dev_project/features/comments/handlers/classes/comment.dart';
 
 class AddCommentController extends GetxController {
   int postId;
   TextEditingController content = TextEditingController();
-  // ListOfCommentsController listOfCommentsController;
+  ListOfCommentsController listOfCommentsController;
 
   var isError = false.obs;
 
   AddCommentController({
     required this.postId,
-    // required this.listOfCommentsController,
+    required this.listOfCommentsController,
   });
 
   void addComment(BuildContext context) async {
@@ -62,17 +61,17 @@ class AddCommentController extends GetxController {
       },
       (success) => {
         Navigator.of(context, rootNavigator: true).pop(),
+        listOfCommentsController.listOfComments.add(
+          Comment(
+            id: 0,
+            userId: user != null ? user.id : 0,
+            postId: -1,
+            content: content.value.text,
+            createdAt: "moments ago",
+            author: user!,
+          ),
+        ),
         content.text = "",
-        // listOfCommentsController.listOfComments.add(Comment(id: id, fullname: fullname, username: username, avatar: avatar, content: content, likes: likes, isLiked: isLiked, hasBookmarked: hasBookmarked, timestamps: timestamps) )
-        // listOfComments.add(
-        //   Comment(
-        //     content: content.value.text,
-        //     createdAt: "Moments ago",
-        //     id: -1,
-        //     postId: postId,
-        //     userId: user != null ? user.id : 0,
-        //   ),
-        // )
       },
     );
   }

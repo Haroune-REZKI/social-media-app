@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
 import 'package:mobile_dev_project/config/font.config.dart';
-import 'package:mobile_dev_project/features/comments/business/entities/comment.dart';
 import 'package:mobile_dev_project/features/comments/components/adding_comment_section.dart';
 import 'package:mobile_dev_project/features/comments/components/single_comment.dart';
 import 'package:mobile_dev_project/features/comments/controllers/list_of_controllers.dart';
@@ -16,10 +15,13 @@ import 'package:mobile_dev_project/utils/components/custom_circular_progress_ind
 class SinglePost extends StatelessWidget {
   int? postId;
 
-  // late final ListOfCommentsController listOfCommentsController;
+  late final ListOfCommentsController listOfCommentsController;
 
   SinglePost({super.key, required this.postId}) {
     singlePostController = Get.put(SinglePostController(postId_: postId));
+    listOfCommentsController = Get.put(
+      ListOfCommentsController(),
+    );
   }
 
   late final SinglePostController singlePostController;
@@ -68,22 +70,30 @@ class SinglePost extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: state.comments.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(
-                      left: 30.0,
-                      right: 30.0,
-                      bottom: 20.0,
-                    ),
-                    child: SingleComment(
-                      comment: state.comments[index],
-                    ),
-                  );
-                },
+              Obx(
+                () => ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: state.comments.length +
+                      listOfCommentsController.listOfComments.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(
+                        left: 30.0,
+                        right: 30.0,
+                        bottom: 20.0,
+                      ),
+                      child: index < state.comments.length
+                          ? SingleComment(
+                              comment: state.comments[index],
+                            )
+                          : SingleComment(
+                              comment: listOfCommentsController.listOfComments[
+                                  index - state.comments.length],
+                            ),
+                    );
+                  },
+                ),
               ),
             ],
           );
@@ -99,7 +109,7 @@ class SinglePost extends StatelessWidget {
           AddingCommentSection(
             commentId: commentsExample[0].id,
             postId: postId!,
-            // listOfCommentsController: widget.listOfCommentsController,
+            listOfCommentsController: listOfCommentsController,
           ),
           CustomBottomNavigationBar(
             selectedIndex: 0,

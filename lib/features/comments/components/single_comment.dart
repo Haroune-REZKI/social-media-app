@@ -53,7 +53,7 @@ class SingleComment extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    comment.author.fullname,
+                    comment.author?.fullname ?? "",
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 17,
@@ -64,7 +64,7 @@ class SingleComment extends StatelessWidget {
                     height: 2,
                   ),
                   Text(
-                    "@${comment.author.username}",
+                    "@${comment.author?.username}",
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
@@ -84,9 +84,9 @@ class SingleComment extends StatelessWidget {
                   ),
                   SingleCommentFooter(
                     likes: "0",
-                    isLiked: commentsExample[0].isLiked,
-                    hasBookmarked: commentsExample[0].hasBookmarked,
-                  ), 
+                    isLiked: false,
+                    hasBookmarked: false,
+                  ),
                 ],
               ),
             )
