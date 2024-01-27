@@ -64,8 +64,8 @@ class ListOfPostsModel extends ListOfPosts {
         hasLiked: element["hasLiked"],
         numberOfLikes: element["numberOfLikes"],
         comments: convertedComments,
-        picture: element["post"]["picture"]
-        //hasBookmarked: element["hasBookmarked"],
+        picture: element["post"]["picture"],
+        hasBookmarked: element["hasBookmarked"],
       );
 
       convertedListOfPosts.add(currentPost);
