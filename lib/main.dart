@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
         '/feed': (context) => const HomeFeed(),
         '/add_post': (context) => const AddPost(),
         '/personal_info_page': (context) => const PersonalInfoPage(),
-        '/profile': (context) => const Profile(),
+        '/profile': (context) => Profile(),
         '/forgot_password': (context) => const ForgotPasswordPage(),
         '/email_sent': (context) => const EmailSent(),
         '/reset_password': (context) => const ResetPassword(),
