@@ -15,7 +15,8 @@ class SinglePostModel extends Post {
             likes: post.likes,
             hasLiked: post.hasLiked,
             numberOfLikes: post.numberOfLikes,
-            comments: post.comments);
+            comments: post.comments,
+            picture: post.picture);
 
   factory SinglePostModel.fromJson(Map<String, dynamic> json) {
     print("single post model is starting");
@@ -72,6 +73,7 @@ class SinglePostModel extends Post {
       hasLiked: element["hasLiked"],
       numberOfLikes: element["numberOfLikes"],
       comments: convertedComments,
+      picture: element["picture"],
       // hasBookmarked: element["hasBookmarked"],
     );
 

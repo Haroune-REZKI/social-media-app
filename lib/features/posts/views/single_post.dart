@@ -10,6 +10,7 @@ import 'package:mobile_dev_project/features/posts/components/feed_post.dart';
 import 'package:mobile_dev_project/features/posts/controllers/single_post.dart';
 import 'package:mobile_dev_project/utils/components/bottom_navigation_bar.dart';
 import 'package:get/get.dart';
+import 'package:mobile_dev_project/utils/components/custom_circular_progress_indicator.dart';
 
 //ignore: must_be_immutable
 class SinglePost extends StatelessWidget {
@@ -18,9 +19,7 @@ class SinglePost extends StatelessWidget {
   // late final ListOfCommentsController listOfCommentsController;
 
   SinglePost({super.key, required this.postId}) {
-    print(">>>>>>> post id: ${postId}");
     singlePostController = Get.put(SinglePostController(postId_: postId));
-    print(">>>>>>>>>>>>>>>>>>>>>>> controller is invoked with ID $postId");
   }
 
   late final SinglePostController singlePostController;
@@ -49,7 +48,6 @@ class SinglePost extends StatelessWidget {
         ),
       ),
       body: singlePostController.obx((state) {
-        print(state!.comments.length);
         try {
           return ListView(
             children: [
@@ -73,24 +71,25 @@ class SinglePost extends StatelessWidget {
               ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
-                itemCount: state!.comments.length,
+                itemCount: state.comments.length,
                 itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(
-                        left: 30.0,
-                        right: 30.0,
-                        bottom: 20.0,
-                      ),
-                      child:
-                          SingleComment(comment:state!.comments[index],),
-                    );
+                  return Padding(
+                    padding: const EdgeInsets.only(
+                      left: 30.0,
+                      right: 30.0,
+                      bottom: 20.0,
+                    ),
+                    child: SingleComment(
+                      comment: state.comments[index],
+                    ),
+                  );
                 },
               ),
             ],
           );
         } catch (e) {
           print(e);
-          return CircularProgressIndicator();
+          return const CustomCircularProgressIndicator();
         }
       }),
       bottomNavigationBar: Column(
@@ -99,7 +98,7 @@ class SinglePost extends StatelessWidget {
         children: [
           AddingCommentSection(
             commentId: commentsExample[0].id,
-            postId: this.postId!,
+            postId: postId!,
             // listOfCommentsController: widget.listOfCommentsController,
           ),
           CustomBottomNavigationBar(

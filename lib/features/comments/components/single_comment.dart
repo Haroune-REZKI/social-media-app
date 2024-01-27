@@ -20,7 +20,7 @@ class SingleComment extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 /* Container(
@@ -82,11 +82,11 @@ class SingleComment extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  /* SingleCommentFooter(
-                    likes: comment.,
-                    isLiked: commentsExample[commentId].isLiked,
-                    hasBookmarked: commentsExample[commentId].hasBookmarked,
-                  ), */
+                  SingleCommentFooter(
+                    likes: "0",
+                    isLiked: commentsExample[0].isLiked,
+                    hasBookmarked: commentsExample[0].hasBookmarked,
+                  ), 
                 ],
               ),
             )
