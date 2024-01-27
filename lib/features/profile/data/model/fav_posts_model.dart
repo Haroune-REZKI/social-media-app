@@ -1,3 +1,4 @@
+
 import 'package:mobile_dev_project/features/authentication/business/entities/user.dart';
 import 'package:mobile_dev_project/features/comments/business/entities/comment.dart';
 import 'package:mobile_dev_project/features/feed/business/entities/list_of_posts.dart';
@@ -18,15 +19,15 @@ class ListOfPostsModel extends ListOfPosts {
           content: comment["content"],
           id: comment["id"],
           author: User(
-            id: element["author"]["id"],
-            fullname: element["author"]["fullname"],
-            username: element["author"]["username"],
-            email: element["author"]["email"],
-            bio: element["author"]["bio"],
-            createdAt: element["author"]["createdAt"],
-            password: element["author"]["password"],
-            phoneNumber: element["author"]["phoneNumber"],
-            gender: element["author"]["gender"],
+            id: element["post"]["author"]["id"],
+            fullname: element["post"]["author"]["fullname"],
+            username: element["post"]["author"]["username"],
+            email: element["post"]["author"]["email"],
+            bio: element["post"]["author"]["bio"],
+            createdAt: element["post"]["author"]["createdAt"],
+            password: element["post"]["author"]["password"],
+            phoneNumber: element["post"]["author"]["phoneNumber"],
+            gender: element["post"]["author"]["gender"],
           ),
           userId: comment["userId"],
           postId: comment["postId"],
@@ -34,7 +35,7 @@ class ListOfPostsModel extends ListOfPosts {
         ));
       }
 
-      for (var comment in element["likes"]) {
+      for (var comment in element["post"]["likes"]) {
         convertedLikes.add(Like(
           userId: comment["userId"],
           postId: comment["postId"],
@@ -43,29 +44,28 @@ class ListOfPostsModel extends ListOfPosts {
       }
 
       Post currentPost = Post(
-        id: element["id"],
-        userId: element["userId"],
-        categoryId: element["categoryId"],
+        id: element["post"]["id"],
+        userId: element["post"]["userId"],
+        categoryId: element["post"]["categoryId"],
         createdAt: element["createdAt"],
         author: User(
-          id: element["author"]["id"],
-          fullname: element["author"]["fullname"],
-          username: element["author"]["username"],
-          email: element["author"]["email"],
-          bio: element["author"]["bio"],
-          createdAt: element["author"]["createdAt"],
-          password: element["author"]["password"],
-          phoneNumber: element["author"]["phoneNumber"],
-          gender: element["author"]["gender"],
+          id: element["post"]["author"]["id"],
+          fullname: element["post"]["author"]["fullname"],
+          username: element["post"]["author"]["username"],
+          email: element["post"]["author"]["email"],
+          bio: element["post"]["author"]["bio"],
+          createdAt: element["post"]["author"]["createdAt"],
+          password: element["post"]["author"]["password"],
+          phoneNumber: element["post"]["author"]["phoneNumber"],
+          gender: element["post"]["author"]["gender"],
         ),
-        content: element["content"],
+        content: element["post"]["content"],
         likes: convertedLikes,
         hasLiked: element["hasLiked"],
-        hasBookmarked: element["hasBookmarked"],
         numberOfLikes: element["numberOfLikes"],
         comments: convertedComments,
-        picture: element["picture"]
-        // hasBookmarked: element["hasBookmarked"],
+        picture: element["post"]["picture"]
+        //hasBookmarked: element["hasBookmarked"],
       );
 
       convertedListOfPosts.add(currentPost);
