@@ -52,6 +52,7 @@ dependencies:
   gson: ^0.1.6-dev
   shared_preferences: ^2.2.2
   google_sign_in: ^6.2.1
+  notification_channel_manager: ^0.1.1+1
 
 dev_dependencies:
   flutter_test:

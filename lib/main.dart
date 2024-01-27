@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:mobile_dev_project/features/authentication/guards/login_or_home.dart';
 import 'package:mobile_dev_project/api/firebase_api.dart';
 import 'package:mobile_dev_project/features/authentication/views/email_sent_page.dart';
@@ -16,11 +18,19 @@ import 'package:mobile_dev_project/features/profile/views/profile.dart';
 import 'package:mobile_dev_project/features/settings/views/settings.dart';
 import 'package:get/get.dart';
 import 'package:mobile_dev_project/firebase_options.dart';
+import 'package:notification_channel_manager/notification_channel_manager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); //
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await FirebaseApi().initNotifications();
+  print(
+      "======================================= ${DefaultFirebaseOptions.currentPlatform}");
+
+  await NotificationChannelManager.createChannel(FirebaseApi().channel);
+
+  await FirebaseApi().initializeFcm();
+
   runApp(const MyApp());
 }
 
