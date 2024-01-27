@@ -1,31 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
 import 'package:mobile_dev_project/config/font.config.dart';
+import 'package:mobile_dev_project/features/comments/business/entities/comment.dart';
 import 'package:mobile_dev_project/features/comments/components/adding_comment_section.dart';
 import 'package:mobile_dev_project/features/comments/components/single_comment.dart';
 import 'package:mobile_dev_project/features/comments/controllers/list_of_controllers.dart';
 import 'package:mobile_dev_project/features/comments/handlers/constants/main.dart';
 import 'package:mobile_dev_project/features/posts/components/feed_post.dart';
+import 'package:mobile_dev_project/features/posts/controllers/single_post.dart';
 import 'package:mobile_dev_project/utils/components/bottom_navigation_bar.dart';
 import 'package:get/get.dart';
 
-class SinglePost extends StatefulWidget {
-  final int postId;
+//ignore: must_be_immutable
+class SinglePost extends StatelessWidget {
+  int? postId;
 
   // late final ListOfCommentsController listOfCommentsController;
 
   SinglePost({super.key, required this.postId}) {
-    // listOfCommentsController = Get.put(
-    //   ListOfCommentsController(listOfComments_: commentsExample),
-    //   tag: "$postId",
-    // );
+    print(">>>>>>> post id: ${postId}");
+    singlePostController = Get.put(SinglePostController(postId_: postId));
+    print(">>>>>>>>>>>>>>>>>>>>>>> controller is invoked with ID $postId");
   }
 
-  @override
-  State<SinglePost> createState() => _SinglePostState();
-}
+  late final SinglePostController singlePostController;
 
-class _SinglePostState extends State<SinglePost> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,43 +48,58 @@ class _SinglePostState extends State<SinglePost> {
           textAlign: TextAlign.center,
         ),
       ),
-      body: ListView(
-        children: [
-          // FeedPost(
-          //   postContent: postsExample[widget.postId],
-          //   isSinglePostView: true,
-          // ),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Text(
-              "Browse Comments",
-              style: AppTextStyles.subtitle,
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          for (var comment in commentsExample)
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 30.0,
-                right: 30.0,
-                bottom: 20.0,
+      body: singlePostController.obx((state) {
+        print(state!.comments.length);
+        try {
+          return ListView(
+            children: [
+              FeedPost(
+                postContent: state!,
+                isSinglePostView: true,
               ),
-              child: SingleComment(commentId: comment.id),
-            )
-        ],
-      ),
+              const SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Text(
+                  "Browse Comments",
+                  style: AppTextStyles.subtitle,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: state!.comments.length,
+                itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(
+                        left: 30.0,
+                        right: 30.0,
+                        bottom: 20.0,
+                      ),
+                      child:
+                          SingleComment(comment:state!.comments[index],),
+                    );
+                },
+              ),
+            ],
+          );
+        } catch (e) {
+          print(e);
+          return CircularProgressIndicator();
+        }
+      }),
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           AddingCommentSection(
             commentId: commentsExample[0].id,
-            postId: widget.postId,
+            postId: this.postId!,
             // listOfCommentsController: widget.listOfCommentsController,
           ),
           CustomBottomNavigationBar(

@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_dev_project/features/authentication/business/entities/user.dart';
 import 'package:mobile_dev_project/features/profile/components/pages.dart';
 import 'package:mobile_dev_project/features/profile/components/statistics.dart';
 
-class ProfileDetails extends StatefulWidget {
-  const ProfileDetails({super.key});
+class ProfileDetails extends StatelessWidget {
+  const ProfileDetails({super.key, required this.user});
+  final User user;
 
-  @override
-  State<ProfileDetails> createState() => _ProfileDetailsState();
-}
-
-class _ProfileDetailsState extends State<ProfileDetails> {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -31,7 +28,7 @@ class _ProfileDetailsState extends State<ProfileDetails> {
             ),
             SizedBox(height: 20,),
             Text(
-              'Mohcen Chouireb',
+              user.fullname,
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 24,
@@ -42,7 +39,7 @@ class _ProfileDetailsState extends State<ProfileDetails> {
             ),
             SizedBox(height: 20,),
             Text(
-              '@username',
+              user.username,
               style: TextStyle(
                 color: Color(0xFF706C6C),
                 fontSize: 16,

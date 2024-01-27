@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_dev_project/features/profile/components/profile_details.dart';
+import 'package:mobile_dev_project/features/profile/controller/get_profile.dart';
 import 'package:mobile_dev_project/utils/components/bottom_navigation_bar.dart';
 
-class Profile extends StatefulWidget {
-  const Profile({super.key});
+class Profile extends StatelessWidget {
+  Profile({super.key})
+  {
+    print("Profile controller will be initializes");
+    Profilecontroller = Get.put(UserProfileController());
+    print(">>>>>>>>>>>>>> profile controller is invoked ---------");
+  }
 
-  @override
-  State<Profile> createState() => _ProfileState();
-}
-
-class _ProfileState extends State<Profile> {
+  late final UserProfileController Profilecontroller;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +28,10 @@ class _ProfileState extends State<Profile> {
           Get.toNamed("/settings");
         }, icon: Icon(Icons.settings))],
       ),
-      body: SingleChildScrollView(child: ProfileDetails()),
+      body: Profilecontroller.obx(
+        (state) => 
+          SingleChildScrollView(child: ProfileDetails(user: state!))
+      ),
       bottomNavigationBar: CustomBottomNavigationBar(
         selectedIndex: 0,
       ),
