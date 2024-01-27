@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:mobile_dev_project/config/colors.config.dart';
+import 'package:mobile_dev_project/features/posts/views/add_post.dart';
 
 class AddTag extends StatefulWidget {
   const AddTag({super.key});
@@ -10,28 +10,29 @@ class AddTag extends StatefulWidget {
 }
 
 class _AddTagState extends State<AddTag> {
-  List<String> labels = ['Ensia', 'Ensm', 'Campus', 'Clubs'];
+  List<String> labels = ['Clubs', 'Pole', 'Campus'];
   List<Color> labelColors = [
-    Color(0xffC5DFDF),
-    Color(0xffFBE7AB),
-    Color(0xffFAD4A6),
+    const Color(0xffC5DFDF),
+    const Color(0xffFBE7AB),
+    const Color(0xffFAD4A6),
     const Color.fromARGB(255, 208, 163, 216)
   ];
   int selectedLabelIndex = -1;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5.0),
       child: Column(
         children: [
           Container(
             alignment: Alignment.topLeft,
-            child: Text(
+            child: const Text(
               'Add a Tag',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
-          SizedBox(height: 20.0),
-          Container(
+          const SizedBox(height: 20.0),
+          SizedBox(
             height: 40,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
@@ -42,11 +43,13 @@ class _AddTagState extends State<AddTag> {
                   child: ElevatedButton(
                     onPressed: () {
                       setState(() {
+                        AddPost.addPostController.setCategoryId(index + 1);
+
                         selectedLabelIndex = index;
                       });
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: selectedLabelIndex == index
+                      backgroundColor: selectedLabelIndex == index
                           ? AppColors.main
                           : labelColors[index], // Use the color from the list
                       shape: RoundedRectangleBorder(

@@ -13,6 +13,7 @@ class Post {
   List<Like> likes;
   int numberOfLikes;
   bool hasLiked;
+  String? picture;
 
   Post({
     required this.id,
@@ -25,5 +26,6 @@ class Post {
     required this.hasLiked,
     required this.numberOfLikes,
     required this.comments,
+    required this.picture,
   });
 }

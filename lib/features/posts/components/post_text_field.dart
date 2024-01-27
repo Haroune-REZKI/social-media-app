@@ -13,7 +13,7 @@ class PostTextField extends StatefulWidget {
 class _PostTextFieldState extends State<PostTextField> {
   @override
   Widget build(BuildContext context) {
-    return Container( 
+    return Container(
       child: TextFormField(
         textAlign: TextAlign.start,
         controller: widget.controller,
@@ -22,12 +22,10 @@ class _PostTextFieldState extends State<PostTextField> {
         decoration: InputDecoration(
           hintText: widget.title,
           alignLabelWithHint: true,
-
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(width: 2, color: AppColors.main),
             borderRadius: BorderRadius.circular(30.0),
           ),
-           
         ),
         validator: (value) {
           if (value == null || value.isEmpty) {
@@ -36,7 +34,6 @@ class _PostTextFieldState extends State<PostTextField> {
           return null;
         },
       ),
-      
     );
     ;
   }
